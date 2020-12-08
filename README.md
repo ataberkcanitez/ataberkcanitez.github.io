@@ -1,1 +1,0 @@
-# ataberkcanitez.github.io
