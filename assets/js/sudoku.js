@@ -77,13 +77,6 @@ function startGame(){
     //Starts the timer
     startTimer();
 
-    //Sets theme based on input
-
-    if(id("theme-1").checked){
-        qs("body").classList.remove("dark");
-    }else{
-        qs("body").classList.add("dark");
-    }
 
     //Show number container
     id("number-container").classList.remove("hidden");
@@ -303,6 +296,18 @@ function clearPrevious() {
 }
 
 
+function changeTheme(radio) {
+
+    if (radio.value === "dark"){
+        qs("body").classList.add("dark");
+
+    }else{
+        qs("body").classList.remove("dark");
+    }
+
+}
+
+
 //Helper functions ...
 
 function id(id){
@@ -315,6 +320,8 @@ function qs(selector) {
 function qsa(selector){
     return document.querySelectorAll(selector);
 }
+
+
 
 
 function solveStarter() {
