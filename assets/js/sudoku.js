@@ -362,7 +362,7 @@ function solvePuzzle(arrBoard) {
                             setTimeout(function (){
                                 tiles[idx].textContent = k;
 
-                            }, idx * 150);
+                            }, idx * 20);
 
                             arrBoard[i][j] = k;
 
@@ -372,7 +372,7 @@ function solvePuzzle(arrBoard) {
                                 setTimeout(function (){
                                     tiles[idx].textContent = "";
 
-                                }, idx * 150);
+                                }, idx * 20);
                                 arrBoard[i][j] = "-";
 
                             }
