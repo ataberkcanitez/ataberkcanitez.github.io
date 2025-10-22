@@ -43,31 +43,28 @@
 <body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
 <div class="fixed inset-0 bg-black bg-opacity-75 z-40 hidden" id="modal-backdrop"></div>
 <div class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" id="cocktail-modal">
-    <div class="bg-background-light dark:bg-background-dark rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden">
-        <div class="w-full md:w-1/2 h-64 md:h-auto bg-cover bg-center" data-alt="A brightly lit orange cocktail in a tall glass with a slice of orange on the rim." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHltpoEJ2iB3pU1X-Y7iCAB5kHpxk1k8ztGowwZM3b5Df-eUkF2jqBFnQ48VPiim-FSfWipH_81PIuw0ENaIa0yc8KUUJbBCYVKttFzR7VZf7hiRpGeAlbfRpEYDtRXKDMMAJXUT-WZDQOJB75J9WKGt0W9duCsM5oIRNNPMf1uR5fdFTGtqhMygsgILklEmnMT-Y03_gDkKhWz8SYNocL8xmOPFkUPbb1y-LgdtxMffWYeF7NfWnivz_vHU89xWBZuqKn-GbOD5qK");'>
+    <div class="bg-background-light dark:bg-background-dark rounded-xl shadow-2xl w-full max-w-4xl h-[600px] flex flex-col md:flex-row overflow-hidden">
+        <div class="w-full md:w-1/2 h-64 md:h-full bg-cover bg-center" data-alt="A brightly lit orange cocktail in a tall glass with a slice of orange on the rim." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHltpoEJ2iB3pU1X-Y7iCAB5kHpxk1k8ztGowwZM3b5Df-eUkF2jqBFnQ48VPiim-FSfWipH_81PIuw0ENaIa0yc8KUUJbBCYVKttFzR7VZf7hiRpGeAlbfRpEYDtRXKDMMAJXUT-WZDQOJB75J9WKGt0W9duCsM5oIRNNPMf1uR5fdFTGtqhMygsgILklEmnMT-Y03_gDkKhWz8SYNocL8xmOPFkUPbb1y-LgdtxMffWYeF7NfWnivz_vHU89xWBZuqKn-GbOD5qK");'>
         </div>
-        <div class="w-full md:w-1/2 p-8 flex flex-col justify-between overflow-y-auto">
-            <div>
-                <div class="flex justify-between items-start">
-                    <h2 class="text-4xl font-black text-primary dark:text-primary tracking-tighter mb-2">The Golden Hour</h2>
-                    <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white" id="close-modal">
-<span class="material-symbols-outlined text-4xl">
+        <div class="w-full md:w-1/2 h-full p-8 flex flex-col justify-between overflow-y-auto">
+            <div class="flex-grow">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-3xl md:text-4xl font-black text-primary dark:text-primary tracking-tighter">The Golden Hour</h2>
+                    <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white flex-shrink-0 ml-4" id="close-modal">
+<span class="material-symbols-outlined text-3xl md:text-4xl">
                 close
               </span>
                     </button>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 text-lg mb-6">A refreshing and vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes and a hint of spice.</p>
-                <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">Ingredients</h3>
-                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 mb-8">
+                <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-6 min-h-[60px]">A refreshing and vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes and a hint of spice.</p>
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">İçindekiler</h3>
+                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 flex-grow overflow-y-auto">
                     <li>Premium Vodka</li>
                     <li>Fresh Orange Juice</li>
                     <li>Apricot Liqueur</li>
                     <li>A dash of Angostura Bitters</li>
                     <li>Garnished with an orange twist</li>
                 </ul>
-            </div>
-            <div class="text-right">
-                <p class="text-3xl font-bold text-primary dark:text-primary">$18</p>
             </div>
         </div>
     </div>
@@ -93,30 +90,7 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 p-4" id="cocktail-grid">
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A brightly lit orange cocktail in a tall glass with a slice of orange on the rim." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBgG3hGReWmmY2FlCvoEjcepuzANDbYN9qONG21tjxxu67PdcyTltgbzNMq0-7LtoI0SsqYIluaHhiIsh2z_RxIl-DHRYDrslC8_By26Yk20zVE3kYmekNU6uGgzJEv08n5ZSKg0wzZXtzc3PaESY5EqKSP4hiWmbaj97S49wIL3BAnhDwlKb6-0QEBApGAtuXGMaPxRFSGjWMpEncLVoJl23tZ5pZPlcDnOeAGpcJV19qT8ttjSmMbdr4GsMQ_O8vhZWqgi-6Qu1VS");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">The Golden Hour</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A dark purple cocktail with a flower garnish in a coupe glass." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1N96yaVSewt-W_vgkibQWc5s21lBY0VM_mUUQ3WDlLdx__EWMdbO-YHO4MmH_Ux8iLWWA8m59Kp79RdElA2-gycknMJAgPkzeWSqh_R9YgHlAFpQtqbKBU5D1dwOIVULfJuGqvPU9935SWN8liZbIVd0iErL05D-uXhCENnfMO5FlwD_xXzsQA5KDHsLga5wN_YDuanPCb_WnSgiTQE07pMP9jbQPHi-OOZ2bH7EWoqYWiKHyqzQgmRxDge2Kl-lQF956WSGM6Wzg");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">Midnight Bloom</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A tall cocktail with layers of color and a sprig of rosemary." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCrzBxyRpMoEVXgZhP16zNdJrpwQ033IBc4oxQ3aOK5MFM-tuBRwUmF6n4orTKUi_oLlUEc-6FSnhZGVn_K2j3809TKCVT8ygThqREpLkbD5xoPnE58s3A9Skk373G8KCPI-UXrGY-51G3ES0xSDm2_SkDo0pqQeNiwj2mN2vvp1dcREEg5MOYSLCR9wm0Cc5QMlJOMKXUQ8r3W_PW7Wji26azUfV6x7DV5sYkfiLuiWmSLGFSxov1ah-wDNokUZiyRBmW2yuGcvta6");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">Spiced Pear Collins</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A vibrant yellow cocktail with a lemon wheel garnish." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEETz7PGY3enHPsnr-BNzSGu1C64-wL9pqyXJWG3ajEyYnJIf_PKfWR7QLjiXYPRCxqr_zjJIJMQyVp6JvNoOmdkH7rSoRSNceUVZ9einC6mEyMLweuCiqS9cck0XhkVUzPImpzlviSx6aXAC2GmCE8lInRrRhgLg0er_BnLC-S1_zW8Vl4TKiWeeL5gIGrC-rytIQ-UU5LZmE0hyB0RGDLBdW5MPCbisOAmBFHJ3Q9q6dT-GxNSVaBEkJP_9teetGgAeTbhH5xcEk");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">Citrus Grove</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A deep red cocktail in a martini glass." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWq81xJpLOyysX-RiIXtnKgLMDuig9ewT5Umu-gU2_RYo4kl3Blg7SYMxk1ar_-Eo_c4P0a9ehiSVIkTI4w4FqErzsP4qtTtZu_O75bogKb1Ce62oZCzxyo_7XZHaQyhvTUX1l6fLTiFwjP-ew3e21XeKhVAmuX8al5lzi_2QSsqigr2n57e8oBEwGCLJmm9Tme0PoVnqUZoVgziJUA5gT7GDeU2i3q6ga-Pa040C7gbQothyKQMT59w_ImZEm_47yb5rWm9UaNVkC");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">The Crimson Tide</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A classic espresso martini with coffee beans on top." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcLklpQ8RPXZrB8prU3iewK7B8N_O8nbbt0j3_KmPvB-DRO4ljWj8YrdWKG1h5iK0CGlgYroY66tfJrCyIL0H7llFsk5UJgFMISjxM2N57MZLwTWoN9w80ngzPRUyW0HCN2rWT4vmguqF5SCcAnIxMCZeqjwMytKAJPyxZ91fnAT8ml7xbgnGNZwE0C7_zlDsTVPibM9Vui1I98ei6Gc3cKviid44Ifq_UyBy9fo2Ru7ZwcAG4qi9YTDqhQGD4wZsISQsl78FHOXJg");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">Espresso Martini</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A pink, bubbly cocktail with a raspberry garnish." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2odfmiG2u9lMKuey6E_mEMlB_R0gljB1giSdlAIm__Q4kr1MXs6Q-nPwjDiQAOBHDNMRZG9qUUUaBAFK8OO5ff-5Xg0w_di5r-esSr4hG6fQFB-pKVZRXUxSzu0n_FUp6J5NmcBV27tOTjS9uAZYJUdj_ktlfnFVMGBwBOIIt1xLn5rkmAM0aR7k7svEc8mPq4rSRtWSDM9eSyVuLEEHSmjlFfnyjVnW1nhOXDXvEPgRXYN4m8_nA5UOGjqfAgC6EP7L5DHiX_qej");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">Ruby Fizz</p>
-                        </div>
-                        <div class="cocktail-card cursor-pointer group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden" data-alt="A sophisticated, clear cocktail in a rocks glass with a large ice cube." style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6giM8DfO_Yp5Sqn2GMTkQN8fKWniv52b7IPBV_G21MOhjuzs0jpf0fNvd-FmCt1O38efvfMFnA7RHKNKKYtp8IJ5TOXnFZ-qfVQTnODjT3s_OPR45AtDiSZOTFA2TQxnkNn5r-OEcvPkaM2AW0m6BFuDeaqZOSZNA0C9PyOJkK5fgXd_sciHDKy-YnHKOQqwTynxElEXIOjIt2IHOrnpzIqz1syyqoFDJgCPnITMeIhL72NBn46qtgNfAOQYrxRf9yiMI_UUNaZoi");'>
-                            <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">The Grandmaster</p>
-                        </div>
+                        <!-- Cocktails will be populated dynamically -->
                     </div>
                 </main>
                 <footer class="flex flex-col gap-6 px-5 py-10 mt-12 text-center border-t border-solid border-gray-200 dark:border-gray-800 @container">
@@ -156,56 +130,22 @@
     const cocktails = [
         {
             id: 1,
-            name: "The Golden Hour",
-            description: "A refreshing and vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes and a hint of spice.",
-            ingredients: ["Premium Vodka", "Fresh Orange Juice", "Apricot Liqueur", "A dash of Angostura Bitters", "Garnished with an orange twist"],
-            price: 18,
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBgG3hGReWmmY2FlCvoEjcepuzANDbYN9qONG21tjxxu67PdcyTltgbzNMq0-7LtoI0SsqYIluaHhiIsh2z_RxIl-DHRYDrslC8_By26Yk20zVE3kYmekNU6uGgzJEv08n5ZSKg0wzZXtzc3PaESY5EqKSP4hiWmbaj97S49wIL3BAnhDwlKb6-0QEBApGAtuXGMaPxRFSGjWMpEncLVoJl23tZ5pZPlcDnOeAGpcJV19qT8ttjSmMbdr4GsMQ_O8vhZWqgi-6Qu1VS",
-            alt: "A brightly lit orange cocktail in a tall glass with a slice of orange on the rim.",
+            name: "Cosmopolitan",
+            description: "",
+            ingredients: ["45ml Vodka", "30 ml Cointreau", "30ml Cranberry (Kızılcık) Suyu", "15ml limon suyu", "15ml seker şurubu"],
+            image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/cosmopolitan-7a6874f.jpg?quality=90&resize=440,400",
             active: true
         },
         {
             id: 2,
-            name: "Midnight Bloom",
-            description: "An elegant and mysterious cocktail with floral notes and a rich purple hue. A sophisticated blend that unfolds with each sip.",
-            ingredients: ["Premium Gin", "Crème de Violette", "Fresh Lemon Juice", "Lavender Simple Syrup", "Garnished with an edible flower"],
-            price: 22,
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA1N96yaVSewt-W_vgkibQWc5s21lBY0VM_mUUQ3WDlLdx__EWMdbO-YHO4MmH_Ux8iLWWA8m59Kp79RdElA2-gycknMJAgPkzeWSqh_R9YgHlAFpQtqbKBU5D1dwOIVULfJuGqvPU9935SWN8liZbIVd0iErL05D-uXhCENnfMO5FlwD_xXzsQA5KDHsLga5wN_YDuanPCb_WnSgiTQE07pMP9jbQPHi-OOZ2bH7EWoqYWiKHyqzQgmRxDge2Kl-lQF956WSGM6Wzg",
-            alt: "A dark purple cocktail with a flower garnish in a coupe glass.",
-            active: false
+            name: "Kuzu Kulağı Sour",
+            description: "",
+            ingredients: ["30ml Gin", "Kuzu Kulağı Karışımı"],
+            image: "https://guffcocktail.com/upload/KuzuKulağı.jpeg",
+            active: true
         },
         {
             id: 3,
-            name: "Spiced Pear Collins",
-            description: "A fall-inspired twist on the classic Collins with layers of seasonal flavors. The perfect balance of fruit and spice.",
-            ingredients: ["Pear Brandy", "Spiced Simple Syrup", "Fresh Lemon Juice", "Club Soda", "Garnished with a sprig of rosemary"],
-            price: 16,
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCrzBxyRpMoEVXgZhP16zNdJrpwQ033IBc4oxQ3aOK5MFM-tuBRwUmF6n4orTKUi_oLlUEc-6FSnhZGVn_K2j3809TKCVT8ygThqREpLkbD5xoPnE58s3A9Skk373G8KCPI-UXrGY-51G3ES0xSDm2_SkDo0pqQeNiwj2mN2vvp1dcREEg5MOYSLCR9wm0Cc5QMlJOMKXUQ8r3W_PW7Wji26azUfV6x7DV5sYkfiLuiWmSLGFSxov1ah-wDNokUZiyRBmW2yuGcvta6",
-            alt: "A tall cocktail with layers of color and a sprig of rosemary.",
-            active: true
-        },
-        {
-            id: 4,
-            name: "Citrus Grove",
-            description: "A bright and zesty cocktail that brings sunshine to any occasion. Fresh, clean, and incredibly refreshing.",
-            ingredients: ["Premium Tequila", "Fresh Lime Juice", "Grapefruit Juice", "Agave Nectar", "Garnished with a lemon wheel"],
-            price: 15,
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDEETz7PGY3enHPsnr-BNzSGu1C64-wL9pqyXJWG3ajEyYnJIf_PKfWR7QLjiXYPRCxqr_zjJIJMQyVp6JvNoOmdkH7rSoRSNceUVZ9einC6mEyMLweuCiqS9cck0XhkVUzPImpzlviSx6aXAC2GmCE8lInRrRhgLg0er_BnLC-S1_zW8Vl4TKiWeeL5gIGrC-rytIQ-UU5LZmE0hyB0RGDLBdW5MPCbisOAmBFHJ3Q9q6dT-GxNSVaBEkJP_9teetGgAeTbhH5xcEk",
-            alt: "A vibrant yellow cocktail with a lemon wheel garnish.",
-            active: true
-        },
-        {
-            id: 5,
-            name: "The Crimson Tide",
-            description: "A bold and dramatic cocktail with deep red color and complex flavors. Rich, smooth, and unforgettable.",
-            ingredients: ["Aged Bourbon", "Pomegranate Juice", "Cherry Liqueur", "Sweet Vermouth", "Garnished with a cherry"],
-            price: 20,
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWq81xJpLOyysX-RiIXtnKgLMDuig9ewT5Umu-gU2_RYo4kl3Blg7SYMxk1ar_-Eo_c4P0a9ehiSVIkTI4w4FqErzsP4qtTtZu_O75bogKb1Ce62oZCzxyo_7XZHaQyhvTUX1l6fLTiFwjP-ew3e21XeKhVAmuX8al5lzi_2QSsqigr2n57e8oBEwGCLJmm9Tme0PoVnqUZoVgziJUA5gT7GDeU2i3q6ga-Pa040C7gbQothyKQMT59w_ImZEm_47yb5rWm9UaNVkC",
-            alt: "A deep red cocktail in a martini glass.",
-            active: false
-        },
-        {
-            id: 6,
             name: "Espresso Martini",
             description: "The perfect after-dinner cocktail combining rich coffee with smooth vodka. Elegant, energizing, and delicious.",
             ingredients: ["Premium Vodka", "Fresh Espresso", "Coffee Liqueur", "Simple Syrup", "Garnished with coffee beans"],
@@ -215,7 +155,7 @@
             active: true
         },
         {
-            id: 7,
+            id: 4,
             name: "Passion Fruit Margarita",
             description: "A tropical twist on the classic margarita, bursting with passion fruit flavor. Sweet, tangy, and perfectly balanced.",
             ingredients: ["Premium Tequila", "Passion Fruit Puree", "Fresh Lime Juice", "Triple Sec", "Garnished with a lime"],
@@ -223,16 +163,6 @@
             image: "https://assets.rbl.ms/22108643/origin.jpg",
             alt: "Passion Fruit Margarita",
             active: true
-        },
-        {
-            id: 8,
-            name: "The Grandmaster",
-            description: "A sophisticated and complex cocktail for the discerning palate. Smooth, refined, and perfectly balanced.",
-            ingredients: ["Single Malt Whisky", "Yellow Chartreuse", "Sweet Vermouth", "Orange Bitters", "Garnished with an orange peel"],
-            price: 25,
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB6giM8DfO_Yp5Sqn2GMTkQN8fKWniv52b7IPBV_G21MOhjuzs0jpf0fNvd-FmCt1O38efvfMFnA7RHKNKKYtp8IJ5TOXnFZ-qfVQTnODjT3s_OPR45AtDiSZOTFA2TQxnkNn5r-OEcvPkaM2AW0m6BFuDeaqZOSZNA0C9PyOJkK5fgXd_sciHDKy-YnHKOQqwTynxElEXIOjIt2IHOrnpzIqz1syyqoFDJgCPnITMeIhL72NBn46qtgNfAOQYrxRf9yiMI_UUNaZoi",
-            alt: "A sophisticated, clear cocktail in a rocks glass with a large ice cube.",
-            active: false
         }
     ];
 
@@ -245,9 +175,9 @@
     // Modal elements to update
     const modalImage = modal.querySelector('.bg-cover');
     const modalTitle = modal.querySelector('h2');
-    const modalDescription = modal.querySelector('p.text-lg');
+    const modalDescription = modal.querySelector('p.text-base');
     const modalIngredients = modal.querySelector('ul');
-    const modalPrice = modal.querySelector('.text-3xl');
+    // const modalPrice = modal.querySelector('.text-3xl');
 
     // Create cocktail card HTML
     function createCocktailCard(cocktail) {
@@ -294,7 +224,7 @@
         modalImage.dataset.alt = cocktail.alt;
         modalTitle.textContent = cocktail.name;
         modalDescription.textContent = cocktail.description;
-        modalPrice.textContent = `$${cocktail.price}`;
+        // modalPrice.textContent = `$${cocktail.price}`;
 
         // Update ingredients list
         modalIngredients.innerHTML = cocktail.ingredients.map(ingredient =>
