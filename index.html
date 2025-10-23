@@ -56,6 +56,9 @@
               </span>
                     </button>
                 </div>
+                <div class="hidden mb-4 p-3 bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 dark:border-yellow-600 rounded-lg" id="unavailable-badge">
+                    <p class="text-yellow-800 dark:text-yellow-200 text-sm font-semibold">⚠️ Şu an mevcut değil</p>
+                </div>
                 <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-6 min-h-[60px]">A refreshing and vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes and a hint of spice.</p>
                 <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">İçindekiler</h3>
                 <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 flex-grow overflow-y-auto">
@@ -220,6 +223,7 @@
 
     // Modal elements to update
     const modalImage = modal.querySelector('.bg-cover');
+    const unavailableBadge = document.getElementById('unavailable-badge');
     const modalTitle = modal.querySelector('h2');
     const modalDescription = modal.querySelector('p.text-base');
     const modalIngredients = modal.querySelector('ul');
@@ -228,15 +232,14 @@
     // Create cocktail card HTML
     function createCocktailCard(cocktail) {
         const opacityClass = cocktail.active ? '' : 'opacity-50';
-        const cursorClass = cocktail.active ? 'cursor-pointer' : 'cursor-not-allowed';
 
         return `
-      <div class="cocktail-card ${cursorClass} ${opacityClass} group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden relative"
+      <div class="cocktail-card cursor-pointer ${opacityClass} group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden relative"
            data-cocktail-id="${cocktail.id}"
            data-alt="${cocktail.alt}"
            data-active="${cocktail.active}"
            style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("${cocktail.image}")'>
-        <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out ${cocktail.active ? 'group-hover:-translate-y-2' : ''}">${cocktail.name}</p>
+        <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">${cocktail.name}</p>
       </div>
     `;
     }
@@ -256,11 +259,7 @@
         cocktailCards.forEach(card => {
             card.addEventListener('click', () => {
                 const cocktailId = parseInt(card.dataset.cocktailId);
-                const isActive = card.dataset.active === 'true';
-
-                if (isActive) {
-                    openModal(cocktailId);
-                }
+                openModal(cocktailId);
             });
         });
     }
@@ -279,6 +278,13 @@
         // modalPrice.textContent = `$${cocktail.price}`;
 
         // Update ingredients list
+        // Show or hide unavailable badge
+        if (cocktail.active) {
+            unavailableBadge.classList.add('hidden');
+        } else {
+            unavailableBadge.classList.remove('hidden');
+        }
+
         modalIngredients.innerHTML = cocktail.ingredients.map(ingredient =>
             `<li>${ingredient}</li>`
         ).join('');
