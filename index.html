@@ -138,31 +138,77 @@
         },
         {
             id: 2,
-            name: "Kuzu Kulağı Sour",
+            name: "Green Mill",
             description: "",
-            ingredients: ["30ml Gin", "Kuzu Kulağı Karışımı"],
+            ingredients: ["45ml Gin", "Kuzu Kulağı", "Nane" ,"Yeşil Elma"],
             image: "https://guffcocktail.com/upload/KuzuKulağı.jpeg",
             active: true
         },
         {
             id: 3,
             name: "Espresso Martini",
-            description: "The perfect after-dinner cocktail combining rich coffee with smooth vodka. Elegant, energizing, and delicious.",
-            ingredients: ["Premium Vodka", "Fresh Espresso", "Coffee Liqueur", "Simple Syrup", "Garnished with coffee beans"],
+            description: "",
+            ingredients: ["50ml Vodka", "25 ml Kahve likörü", "30ml Espresso", "10ml Simple Syrup"],
             price: 17,
             image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcLklpQ8RPXZrB8prU3iewK7B8N_O8nbbt0j3_KmPvB-DRO4ljWj8YrdWKG1h5iK0CGlgYroY66tfJrCyIL0H7llFsk5UJgFMISjxM2N57MZLwTWoN9w80ngzPRUyW0HCN2rWT4vmguqF5SCcAnIxMCZeqjwMytKAJPyxZ91fnAT8ml7xbgnGNZwE0C7_zlDsTVPibM9Vui1I98ei6Gc3cKviid44Ifq_UyBy9fo2Ru7ZwcAG4qi9YTDqhQGD4wZsISQsl78FHOXJg",
-            alt: "A classic espresso martini with coffee beans on top.",
             active: true
         },
         {
             id: 4,
             name: "Passion Fruit Margarita",
-            description: "A tropical twist on the classic margarita, bursting with passion fruit flavor. Sweet, tangy, and perfectly balanced.",
+            description: "",
             ingredients: ["Premium Tequila", "Passion Fruit Puree", "Fresh Lime Juice", "Triple Sec", "Garnished with a lime"],
-            price: 18,
             image: "https://assets.rbl.ms/22108643/origin.jpg",
-            alt: "Passion Fruit Margarita",
+            active: false
+        },
+        {
+            id: 5,
+            name: "Pink Me Up",
+            description: "",
+            ingredients: ["50ml Beefeater Pink", "60ml Ananas suyu", "15ml Vanilya surubu", "20ml Limon suyu", "40ml Hibiscus Cayi"],
+            image: "https://www.thebigchilli.com/uploads/1/2/2/0/12204015/12_32_orig.jpg",
             active: true
+        },
+        {
+            id: 6,
+            name: "Over The Rainbow",
+            description: "",
+            ingredients: ["45ml Gin", "Ada çayı", "Zencefil", "Salatalık", "Nane"],
+            image: "https://static.ticimax.cloud/cdn-cgi/image/width=920,quality=85/69459/uploads/urunresimleri/buyuk/over-the-rainbow--46f6-.jpg",
+            active: true
+        },
+        {
+            id: 7,
+            name: "Fly me to the moon",
+            description: "",
+            ingredients: ["45ml Gin", "Çikolata", "İsli Vişne", "Arnavut Biberi"],
+            image: "https://static.ticimax.cloud/cdn-cgi/image/width=920,quality=85/69459/uploads/urunresimleri/buyuk/fly-me-to-the-moon-c-4764.jpg",
+            active: true
+        },
+        {
+            id: 8,
+            name: "Whiskey Sour",
+            description: "",
+            ingredients: ["60ml Bourbon", "25ml Limon suyu", "15ml simple syrup"],
+            image: "https://www.liquor.com/thmb/Oa3KjaP_udh0TYQO9ckm0dPS5PA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/whiskey-sour-1500x1500-hero-c9df509bb1d141f1a8424051c3d78445.jpg",
+            active: true
+        },
+        {
+            id: 9,
+            name: "Old fashioned",
+            description: "",
+            ingredients: ["60ml Bourbon", "1 Portakal kabuğu", "1 Çay kaşığı şeker", "10ml soda" , "3 Damla Angosture Bitter"],
+            image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTdrPaFbf3tRX9uLw3sOhHdZCuLAdugcvrS_O3ip9MFV2_CkLhYlbci8QWD4dwPgAUbDEjdibw",
+            active: true
+        },
+        {
+            id: 10,
+            name: "Pornstar Martini",
+            description: "",
+            ingredients: ["50ml Votka", "20ml Passion Fruit püresi", "15ml Vanilya Şurubu", "15ml Limon suyu"],
+            image: "https://www.liquor.com/thmb/i2DkWJ_hmom5HX0FZCViCl13FUE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pornstar-martini-1500x1500-hero-56a952f5ff044877ab9797b424ec21ed.jpg",
+            active: false
+
         }
     ];
 
@@ -197,7 +243,13 @@
 
     // Populate cocktail grid
     function populateCocktails() {
-        cocktailGrid.innerHTML = cocktails.map(createCocktailCard).join('');
+        // Sort cocktails: active first, then passive
+        const sortedCocktails = [...cocktails].sort((a, b) => {
+            if (a.active === b.active) return 0;
+            return a.active ? -1 : 1;
+        });
+
+        cocktailGrid.innerHTML = sortedCocktails.map(createCocktailCard).join('');
 
         // Add click event listeners to all cocktail cards
         const cocktailCards = document.querySelectorAll('.cocktail-card');
