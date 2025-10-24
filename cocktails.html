@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ataberk Canitez - Cocktails</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                    'FILL' 0,
+                    'wght' 400,
+                    'GRAD' 0,
+                    'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
+<div class="fixed inset-0 bg-black bg-opacity-75 z-40 hidden" id="modal-backdrop"></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" id="cocktail-modal">
+    <div class="bg-background-light dark:bg-background-dark rounded-xl shadow-2xl w-full max-w-4xl h-[600px] flex flex-col md:flex-row overflow-hidden">
+        <div class="w-full md:w-1/2 h-64 md:h-full bg-cover bg-center" data-alt="A brightly lit orange cocktail in a tall glass with a slice of orange on the rim." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHltpoEJ2iB3pU1X-Y7iCAB5kHpxk1k8ztGowwZM3b5Df-eUkF2jqBFnQ48VPiim-FSfWipH_81PIuw0ENaIa0yc8KUUJbBCYVKttFzR7VZf7hiRpGeAlbfRpEYDtRXKDMMAJXUT-WZDQOJB75J9WKGt0W9duCsM5oIRNNPMf1uR5fdFTGtqhMygsgILklEmnMT-Y03_gDkKhWz8SYNocL8xmOPFkUPbb1y-LgdtxMffWYeF7NfWnivz_vHU89xWBZuqKn-GbOD5qK");'>
+        </div>
+        <div class="w-full md:w-1/2 h-full p-8 flex flex-col justify-between overflow-y-auto">
+            <div class="flex-grow">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-3xl md:text-4xl font-black text-primary dark:text-primary tracking-tighter">The Golden Hour</h2>
+                    <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white flex-shrink-0 ml-4" id="close-modal">
+<span class="material-symbols-outlined text-3xl md:text-4xl">
+                close
+              </span>
+                    </button>
+                </div>
+                <div class="hidden mb-4 p-3 bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 dark:border-yellow-600 rounded-lg" id="unavailable-badge">
+                    <p class="text-yellow-800 dark:text-yellow-200 text-sm font-semibold">⚠️ Şu an mevcut değil</p>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-6 min-h-[60px]">A refreshing and vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes and a hint of spice.</p>
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">İçindekiler</h3>
+                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 flex-grow overflow-y-auto">
+                    <li>Premium Vodka</li>
+                    <li>Fresh Orange Juice</li>
+                    <li>Apricot Liqueur</li>
+                    <li>A dash of Angostura Bitters</li>
+                    <li>Garnished with an orange twist</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" id="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div class="fixed top-0 right-0 h-full w-64 bg-background-light dark:bg-background-dark border-l border-gray-200 dark:border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
+    <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+            <h2 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Menu</h2>
+            <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white" id="close-mobile-menu">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="flex-1 p-4 overflow-y-auto">
+            <ul class="space-y-2">
+                <li>
+                    <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined">home</span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cocktails.html" class="flex items-center gap-3 px-4 py-3 bg-primary bg-opacity-10 text-primary font-semibold rounded-lg">
+                        <span class="material-symbols-outlined">local_bar</span>
+                        <span>Cocktails</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+    <div class="layout-container flex h-full grow flex-col">
+        <!-- Header Navigation -->
+        <header class="sticky top-0 z-30 bg-background-light dark:bg-background-dark border-b border-solid border-b-gray-200 dark:border-b-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-3 text-gray-800 dark:text-gray-100">
+                        <div class="size-8 text-primary">
+                            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-gray-800 dark:text-gray-100 text-xl font-bold leading-tight">Ataberk's Bar</h2>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-xl">home</span>
+                            <span>Home</span>
+                        </a>
+                        <a href="cocktails.html" class="flex items-center gap-2 text-primary font-semibold border-b-2 border-primary pb-1">
+                            <span class="material-symbols-outlined text-xl">local_bar</span>
+                            <span>Cocktails</span>
+                        </a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-gray-800 dark:text-gray-100" id="menu-toggle">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <main class="flex-grow">
+                    <div class="flex flex-wrap justify-between gap-3 p-4 my-4">
+                        <div class="flex min-w-72 flex-col gap-3">
+                            <p class="text-gray-800 dark:text-gray-100 text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Our Cocktails</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-base">Handcrafted drinks made with premium ingredients</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 p-4" id="cocktail-grid">
+                        <!-- Cocktails will be populated dynamically -->
+                    </div>
+                </main>
+                <footer class="flex flex-col gap-6 px-5 py-10 mt-12 text-center border-t border-solid border-gray-200 dark:border-gray-800 @container">
+                    <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+                        <div class="flex flex-col items-center">
+                            <h4 class="font-bold text-gray-800 dark:text-gray-100 mb-2">Location</h4>
+                            <p class="text-gray-500 dark:text-gray-400">8087/21 sk, Park Yasam Santorini, a3:43</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <h4 class="font-bold text-gray-800 dark:text-gray-100 mb-2">Hours</h4>
+                            <p class="text-gray-500 dark:text-gray-400">Sat: 17:00 - 03:00</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <h4 class="font-bold text-gray-800 dark:text-gray-100 mb-2">Contact</h4>
+                            <p class="text-gray-500 dark:text-gray-400">538 504 4757</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-6 mt-4">
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                            <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                            <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                        </a>
+                        <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
+                            <svg class="feather feather-twitter" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Mobile menu functionality
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+    function openMobileMenu() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenuFunc() {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMobileMenu);
+    closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+    // Cocktail data
+    const cocktails = [
+        {
+            id: 1,
+            name: "Cosmopolitan",
+            description: "Klasik bir şehir efsanesi. Hem tatlı hem ekşi.",
+            ingredients: ["45ml Vodka", "30 ml Cointreau", "30ml Cranberry (Kızılcık) Suyu", "15ml limon suyu", "15ml seker şurubu"],
+            image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/cosmopolitan-7a6874f.jpg?quality=90&resize=440,400",
+            active: true
+        },
+        {
+            id: 2,
+            name: "Green Mill",
+            description: "Ferah ve içten. Kuzu kulağının doğal tatlılığı yeşil elma ile buluşuyor, hafif ama etkili.",
+            ingredients: ["45ml Gin", "Kuzu Kulağı", "Nane" ,"Yeşil Elma"],
+            image: "https://static.ticimax.cloud/cdn-cgi/image/width=920,quality=85/69459/uploads/urunresimleri/buyuk/green-mill--9464-.jpg",
+            active: true
+        },
+        {
+            id: 3,
+            name: "Espresso Martini",
+            description: "Yoğun, pürüzsüz ve tam dengede. Kahvenin enerjisiyle votkanın netliği buluşuyor.",
+            ingredients: ["50ml Vodka", "25 ml Kahve likörü", "30ml Espresso", "10ml Simple Syrup"],
+            price: 17,
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcLklpQ8RPXZrB8prU3iewK7B8N_O8nbbt0j3_KmPvB-DRO4ljWj8YrdWKG1h5iK0CGlgYroY66tfJrCyIL0H7llFsk5UJgFMISjxM2N57MZLwTWoN9w80ngzPRUyW0HCN2rWT4vmguqF5SCcAnIxMCZeqjwMytKAJPyxZ91fnAT8ml7xbgnGNZwE0C7_zlDsTVPibM9Vui1I98ei6Gc3cKviid44Ifq_UyBy9fo2Ru7ZwcAG4qi9YTDqhQGD4wZsISQsl78FHOXJg",
+            active: true
+        },
+        {
+            id: 4,
+            name: "Passion Fruit Margarita",
+            description: "Tropikal bir kaçış. Passion fruit'un egzotik tadı tequila ile dans ediyor.",
+            ingredients: ["30ml tekila", "20ml Cointreau", "30ml limon suyu", "30ml", "30ml passion fruit püresi", "10ml şeker şurubu"],
+            image: "https://assets.rbl.ms/22108643/origin.jpg",
+            active: false
+        },
+        {
+            id: 5,
+            name: "Pink Me Up",
+            description: "Rengi kadar neşeli. Ananas ve hibiscus çayının buluşması, hafif tatlı ve çok keyifli.",
+            ingredients: ["50ml Beefeater Pink", "60ml Ananas suyu", "15ml Vanilya surubu", "20ml Limon suyu", "40ml Hibiscus Cayi"],
+            image: "https://www.thebigchilli.com/uploads/1/2/2/0/12204015/12_32_orig.jpg",
+            active: true
+        },
+        {
+            id: 6,
+            name: "Over The Rainbow",
+            description: "Ada çayı ve salatalık ile ferahlatan bir deneyim. Serinletici ve rahatlatıcı.",
+            ingredients: ["45ml Gin", "Ada çayı", "Zencefil", "Salatalık", "Nane"],
+            image: "https://static.ticimax.cloud/cdn-cgi/image/width=920,quality=85/69459/uploads/urunresimleri/buyuk/over-the-rainbow--46f6-.jpg",
+            active: true
+        },
+        {
+            id: 7,
+            name: "Fly me to the moon",
+            description: "Sürprizlerle dolu. Çikolata, isli vişne ve arnavut biberi bir arada...",
+            ingredients: ["45ml Gin", "Çikolata", "İsli Vişne", "Arnavut Biberi"],
+            image: "https://static.ticimax.cloud/cdn-cgi/image/width=920,quality=85/69459/uploads/urunresimleri/buyuk/fly-me-to-the-moon-c-4764.jpg",
+            active: true
+        },
+        {
+            id: 8,
+            name: "Whiskey Sour",
+            description: "Zamansız klasik. Bourbon'un sıcaklığı limonun tazeliğiyle dengede, basit ama mükemmel.",
+            ingredients: ["60ml Bourbon", "25ml Limon suyu", "15ml simple syrup"],
+            image: "https://www.liquor.com/thmb/Oa3KjaP_udh0TYQO9ckm0dPS5PA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/whiskey-sour-1500x1500-hero-c9df509bb1d141f1a8424051c3d78445.jpg",
+            active: true
+        },
+        {
+            id: 9,
+            name: "Old fashioned",
+            description: "Klasiklerin klasiği. Portakal aromalarıyla bourbon'u yavaş yavaş yudumlayacaksın.",
+            ingredients: ["60ml Bourbon", "1 Portakal kabuğu", "1 Çay kaşığı şeker", "10ml soda" , "3 Damla Angosture Bitter"],
+            image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTdrPaFbf3tRX9uLw3sOhHdZCuLAdugcvrS_O3ip9MFV2_CkLhYlbci8QWD4dwPgAUbDEjdibw",
+            active: true
+        },
+        {
+            id: 10,
+            name: "Pornstar Martini",
+            description: "Vanilya ve passion fruit'un muhteşem uyumu. Tatlı, kremsi ve oldukça lezzetli.",
+            ingredients: ["50ml Votka", "20ml Passion Fruit püresi", "15ml Vanilya Şurubu", "15ml Limon suyu"],
+            image: "https://www.liquor.com/thmb/i2DkWJ_hmom5HX0FZCViCl13FUE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pornstar-martini-1500x1500-hero-56a952f5ff044877ab9797b424ec21ed.jpg",
+            active: false
+        },
+        {
+            id: 11,
+            name: "Negroni",
+            description: "İtalyan usulü bitter cocktail. Sert, karakterli ve her yudumda farklı bir tat katmanı keşfediyorsun.",
+            ingredients: ["30ml Cin", "30ml Campari", "30ml Martini Rosso"],
+            image: "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/1D4CCB7D-D830-4ED3-9535-875D10CFC801/Derivates/DAD3AE52-E326-4309-90BA-10F6BEEB1EC7.jpg",
+            active: true
+
+        }
+    ];
+
+    // DOM elements
+    const cocktailGrid = document.getElementById('cocktail-grid');
+    const modal = document.getElementById('cocktail-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const closeModalBtn = document.getElementById('close-modal');
+
+    // Modal elements to update
+    const modalImage = modal.querySelector('.bg-cover');
+    const unavailableBadge = document.getElementById('unavailable-badge');
+    const modalTitle = modal.querySelector('h2');
+    const modalDescription = modal.querySelector('p.text-base');
+    const modalIngredients = modal.querySelector('ul');
+
+    // Create cocktail card HTML
+    function createCocktailCard(cocktail) {
+        const opacityClass = cocktail.active ? '' : 'opacity-50';
+
+        return `
+      <div class="cocktail-card cursor-pointer ${opacityClass} group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden relative"
+           data-cocktail-id="${cocktail.id}"
+           data-alt="${cocktail.alt}"
+           data-active="${cocktail.active}"
+           style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("${cocktail.image}")'>
+        <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">${cocktail.name}</p>
+      </div>
+    `;
+    }
+
+    // Populate cocktail grid
+    function populateCocktails() {
+        // Sort cocktails: active first, then passive
+        const sortedCocktails = [...cocktails].sort((a, b) => {
+            if (a.active === b.active) return 0;
+            return a.active ? -1 : 1;
+        });
+
+        cocktailGrid.innerHTML = sortedCocktails.map(createCocktailCard).join('');
+
+        // Add click event listeners to all cocktail cards
+        const cocktailCards = document.querySelectorAll('.cocktail-card');
+        cocktailCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const cocktailId = parseInt(card.dataset.cocktailId);
+                openModal(cocktailId);
+            });
+        });
+    }
+
+    // Open modal with specific cocktail data
+    function openModal(cocktailId) {
+        const cocktail = cocktails.find(c => c.id === cocktailId);
+        if (!cocktail) return;
+
+        // Update modal content
+        modalImage.style.backgroundImage = `url("${cocktail.image}")`;
+        modalImage.dataset.alt = cocktail.alt;
+        modalTitle.textContent = cocktail.name;
+        modalDescription.textContent = cocktail.description;
+
+        // Show or hide unavailable badge
+        if (cocktail.active) {
+            unavailableBadge.classList.add('hidden');
+        } else {
+            unavailableBadge.classList.remove('hidden');
+        }
+
+        modalIngredients.innerHTML = cocktail.ingredients.map(ingredient =>
+            `<li>${ingredient}</li>`
+        ).join('');
+
+        // Show modal
+        modal.classList.remove('hidden');
+        modalBackdrop.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal
+    function closeModal() {
+        modal.classList.add('hidden');
+        modalBackdrop.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    // Event listeners
+    closeModalBtn.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', populateCocktails);
+</script>
+</body></html>
+
