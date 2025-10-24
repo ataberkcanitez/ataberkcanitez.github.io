@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -71,6 +72,61 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
+
+<!-- WiFi Modal -->
+<div class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden" id="wifi-modal-backdrop"></div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" id="wifi-modal">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md p-8 relative">
+        <button class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white" id="close-wifi-modal">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary bg-opacity-10 rounded-full mb-4">
+                <span class="material-symbols-outlined text-4xl text-primary">wifi</span>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">WiFi'a Bağlan</h2>
+            <p class="text-gray-600 dark:text-gray-400">Qr Kodu Okut ya da Aşağıdakı Bilgileri Kullan</p>
+        </div>
+
+        <!-- QR Code Container -->
+        <div class="flex justify-center mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-inner" id="qr-code-container">
+                <!-- QR code will be generated here -->
+            </div>
+        </div>
+
+        <!-- WiFi Details -->
+        <div class="space-y-3 mb-6 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+            <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Network Name (SSID)</p>
+                <p class="font-mono font-semibold text-gray-800 dark:text-gray-100" id="wifi-ssid">Loading...</p>
+            </div>
+            <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Password</p>
+                <div class="flex items-center gap-2">
+                    <p class="font-mono font-semibold text-gray-800 dark:text-gray-100 flex-1" id="wifi-password">••••••••</p>
+                    <button class="text-primary hover:text-opacity-80" id="toggle-password" title="Show/Hide Password">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </button>
+                    <button class="text-primary hover:text-opacity-80" id="copy-password" title="Copy Password">
+                        <span class="material-symbols-outlined">content_copy</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+            <p class="font-semibold">📱 On Mobile:</p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+                <li>Kamerayı aç</li>
+                <li>QR Kodu Okut</li>
+                <li>Bildirime tıkla</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!-- Mobile Menu Overlay -->
 <div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" id="mobile-menu-overlay"></div>
@@ -167,6 +223,10 @@
                                 <span class="material-symbols-outlined">local_bar</span>
                                 <span>View Cocktails Menu</span>
                             </a>
+                            <button id="wifi-button" class="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 font-bold rounded-xl hover:shadow-xl transition-all transform hover:scale-105 shadow-lg border-2 border-gray-200 dark:border-gray-700">
+                                <span class="material-symbols-outlined">wifi</span>
+                                <span>Connect to WiFi</span>
+                            </button>
                         </div>
 
                         <!-- Info Cards -->
@@ -213,6 +273,15 @@
 </div>
 
 <script>
+    // ============================================
+    // WiFi Configuration - UPDATE THESE VALUES
+    // ============================================
+    const WIFI_CONFIG = {
+        ssid: "FiberHGW_ZY56C6",        // Replace with your WiFi network name
+        password: "qP3hknYMsAnv", // Replace with your WiFi password
+        security: "WPA"               // WPA, WEP, or nopass (for open networks)
+    };
+
     // Mobile menu functionality
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
@@ -234,5 +303,110 @@
     menuToggle.addEventListener('click', openMobileMenu);
     closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
     mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+    // ============================================
+    // WiFi Modal Functionality
+    // ============================================
+    const wifiButton = document.getElementById('wifi-button');
+    const wifiModal = document.getElementById('wifi-modal');
+    const wifiModalBackdrop = document.getElementById('wifi-modal-backdrop');
+    const closeWifiModal = document.getElementById('close-wifi-modal');
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const copyPasswordBtn = document.getElementById('copy-password');
+    const wifiSSIDElement = document.getElementById('wifi-ssid');
+    const wifiPasswordElement = document.getElementById('wifi-password');
+    const qrCodeContainer = document.getElementById('qr-code-container');
+
+    let passwordVisible = false;
+    let qrCodeGenerated = false;
+
+    // Generate WiFi QR code string
+    function generateWiFiString(ssid, password, security) {
+        // Format: WIFI:T:WPA;S:ssid;P:password;;
+        return `WIFI:T:${security};S:${ssid};P:${password};;`;
+    }
+
+    // Open WiFi modal
+    function openWiFiModal() {
+        wifiModal.classList.remove('hidden');
+        wifiModalBackdrop.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Populate WiFi details
+        wifiSSIDElement.textContent = WIFI_CONFIG.ssid;
+        wifiPasswordElement.textContent = '••••••••';
+        passwordVisible = false;
+        updatePasswordToggleIcon();
+
+        // Generate QR code only once
+        if (!qrCodeGenerated) {
+            qrCodeContainer.innerHTML = ''; // Clear any existing content
+            const wifiString = generateWiFiString(WIFI_CONFIG.ssid, WIFI_CONFIG.password, WIFI_CONFIG.security);
+
+            new QRCode(qrCodeContainer, {
+                text: wifiString,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            qrCodeGenerated = true;
+        }
+    }
+
+    // Close WiFi modal
+    function closeWiFiModalFunc() {
+        wifiModal.classList.add('hidden');
+        wifiModalBackdrop.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    // Toggle password visibility
+    function togglePassword() {
+        passwordVisible = !passwordVisible;
+        if (passwordVisible) {
+            wifiPasswordElement.textContent = WIFI_CONFIG.password;
+        } else {
+            wifiPasswordElement.textContent = '••••••••';
+        }
+        updatePasswordToggleIcon();
+    }
+
+    // Update password toggle icon
+    function updatePasswordToggleIcon() {
+        const icon = togglePasswordBtn.querySelector('.material-symbols-outlined');
+        icon.textContent = passwordVisible ? 'visibility_off' : 'visibility';
+    }
+
+    // Copy password to clipboard
+    async function copyPassword() {
+        try {
+            await navigator.clipboard.writeText(WIFI_CONFIG.password);
+            const icon = copyPasswordBtn.querySelector('.material-symbols-outlined');
+            const originalText = icon.textContent;
+            icon.textContent = 'check';
+            setTimeout(() => {
+                icon.textContent = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy password:', err);
+            alert('Failed to copy password. Please copy manually.');
+        }
+    }
+
+    // Event listeners
+    wifiButton.addEventListener('click', openWiFiModal);
+    closeWifiModal.addEventListener('click', closeWiFiModalFunc);
+    wifiModalBackdrop.addEventListener('click', closeWiFiModalFunc);
+    togglePasswordBtn.addEventListener('click', togglePassword);
+    copyPasswordBtn.addEventListener('click', copyPassword);
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !wifiModal.classList.contains('hidden')) {
+            closeWiFiModalFunc();
+        }
+    });
 </script>
 </body></html>
