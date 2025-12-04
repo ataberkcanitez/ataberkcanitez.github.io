@@ -149,6 +149,10 @@
                             <p class="text-gray-500 dark:text-gray-400 text-base">Handcrafted drinks made with premium ingredients</p>
                         </div>
                     </div>
+                    <!-- Category Filter Bar -->
+                    <div id="category-filter-bar" class="flex gap-2 overflow-x-auto pb-2 mb-4">
+                        <!-- Category buttons will be populated dynamically -->
+                    </div>
                     <div class="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 p-4" id="cocktail-grid">
                         <!-- Cocktails will be populated dynamically -->
                     </div>
@@ -215,7 +219,8 @@
             description: "Klasik bir şehir efsanesi. Hem tatlı hem ekşi.",
             ingredients: ["45ml Vodka", "30 ml Cointreau", "30ml Cranberry (Kızılcık) Suyu", "15ml limon suyu", "15ml seker şurubu"],
             image: "assets/cosmopolitan.jpg",
-            active: true
+            active: true,
+            categories: ["classic", "vodka"]
         },
         {
             id: 3,
@@ -224,7 +229,8 @@
             ingredients: ["50ml Vodka", "25 ml Kahve likörü", "30ml Espresso", "10ml Simple Syrup"],
             price: 17,
             image: "assets/espresso-martini.png",
-            active: true
+            active: true,
+            categories: ["coffee", "vodka", "dessert"]
         },
         {
             id: 4,
@@ -232,7 +238,8 @@
             description: "Tropikal bir kaçış. Passion fruit'un egzotik tadı tequila ile dans ediyor.",
             ingredients: ["30ml tekila", "20ml Cointreau", "30ml limon suyu", "30ml passion fruit püresi", "10ml şeker şurubu"],
             image: "assets/passion-fruit-margarita.jpg",
-            active: true
+            active: true,
+            categories: ["tropical", "tequila", "sour"]
         },
         {
             id: 5,
@@ -240,7 +247,8 @@
             description: "Rengi kadar neşeli. Ananas ve hibiscus çayının buluşması, hafif tatlı ve çok keyifli.",
             ingredients: ["50ml Beefeater Pink", "60ml Ananas suyu", "15ml Vanilya surubu", "20ml Limon suyu", "40ml Hibiscus Cayi"],
             image: "assets/pink-me-up.jpg",
-            active: true
+            active: true,
+            categories: ["tropical", "gin", "sweet"]
         },
         {
             id: 6,
@@ -248,7 +256,8 @@
             description: "Ada çayı ve salatalık ile ferahlatan bir deneyim. Serinletici ve rahatlatıcı.",
             ingredients: ["45ml Gin", "Ada çayı", "Zencefil", "Salatalık", "Nane"],
             image: "assets/over-the-rainbow.jpg",
-            active: true
+            active: true,
+            categories: ["refreshing", "gin", "herbal"]
         },
         {
             id: 7,
@@ -256,7 +265,8 @@
             description: "Sürprizlerle dolu. Çikolata, isli vişne ve arnavut biberi bir arada...",
             ingredients: ["45ml Gin", "Çikolata", "İsli Vişne", "Arnavut Biberi"],
             image: "assets/fly-me-to-the-moon.jpg",
-            active: true
+            active: true,
+            categories: ["exotic", "gin", "dessert"]
         },
         {
             id: 8,
@@ -264,7 +274,8 @@
             description: "Zamansız klasik. Bourbon'un sıcaklığı limonun tazeliğiyle dengede, basit ama mükemmel.",
             ingredients: ["60ml Bourbon", "25ml Limon suyu", "15ml simple syrup"],
             image: "assets/whiskey-sour.jpg",
-            active: true
+            active: true,
+            categories: ["classic", "whiskey", "sour"]
         },
         {
             id: 9,
@@ -272,7 +283,8 @@
             description: "Klasiklerin klasiği. Portakal aromalarıyla bourbon'u yavaş yavaş yudumlayacaksın.",
             ingredients: ["60ml Bourbon", "1 Parca Portakal kabuğu", "2 Esmer Seker", "10ml soda" , "3 Damla Angosture Bitter"],
             image: "assets/old-fashioned-.jpeg",
-            active: true
+            active: true,
+            categories: ["classic", "whiskey"]
         },
         {
             id: 10,
@@ -280,7 +292,8 @@
             description: "Vanilya ve passion fruit'un muhteşem uyumu. Tatlı, kremsi ve oldukça lezzetli.",
             ingredients: ["50ml Vanilya Vodka", "20ml Passion Fruit likörü (Passoa)", "50ml Passion Fruit Püresi", "15ml Vanilya" ],
             image: "assets/pornstar-martini.jpg",
-            active: true
+            active: true,
+            categories: ["tropical", "vodka", "sweet"]
         },
         {
             id: 15,
@@ -288,7 +301,8 @@
             description: "Yeşil erik, kuzu kulağı ve limon otunun karşı konulmaz ekşiliğine lime ekledik; turunç karışımı ile tatlandırdık. GRASS damağınızda karşı koyulmaz bir tat ile sizleri bekliyor!",
             ingredients: ["30ml Cin", "45 ml Grass Karisimi (kuzu kulagi, limon otu)"],
             image: "assets/kuzu-kulagi.jpeg",
-            active: true
+            active: true,
+            categories: ["herbal", "gin", "sour"]
         },
         {
             id: 16,
@@ -296,7 +310,8 @@
             description: "Yoğun vişne ve zengin çikolata aromalarının buluştuğu, hazır ve pratik bir kokteyl. Tatlı ve hafif ekşi lezzetiyle her yudumda keyif verir.",
             ingredients: ["30ml Cin", "45 ml no:13 vişne çikolata karışımı"],
             image: "assets/sweet-chocolate.png",
-            active: true
+            active: true,
+            categories: ["dessert", "gin", "sweet"]
         },
         {
             id: 17,
@@ -304,7 +319,8 @@
             description: "Son yılların favorisi yangınlı Hot Chili Passion'ın en dengeli hali karşınızda! Biz içine Bodrum'dan aldığımız satsumaları da ekledik, bize özel acısı tam kıvamında bir reçete çıktı.🔥",
             ingredients: ["30ml Cin", "Hot Lips Karisimi (Çarkıfelek Meyvesi & Satsuma & Acı Biber)"],
             image: "assets/hot-lips.jpg",
-            active: true
+            active: true,
+            categories: ["spicy", "gin", "tropical"]
         },
         {
             id: 11,
@@ -312,7 +328,8 @@
             description: "İtalyan usulü bitter cocktail. Sert, karakterli ve her yudumda farklı bir tat katmanı keşfediyorsun.",
             ingredients: ["30ml Cin", "30ml Campari", "30ml Martini Rosso"],
             image: "assets/negroni.jpg",
-            active: true
+            active: true,
+            categories: ["classic", "gin", "bitter"]
         },
         {
             id: 12,
@@ -320,7 +337,8 @@
             description: "Klasik cin tonik",
             ingredients: ["60ml Cin", "120ml Tonik", "20ml Limon", "Salatalık", "Nane"],
             image: "assets/cin-tonik.jpg",
-            active: true
+            active: true,
+            categories: ["refreshing", "gin"]
         },
         {
             id: 13,
@@ -328,7 +346,8 @@
             description: "Zamansız bir klasik. Bourbon'un zenginliği, tatlı vermutun derinliği ve angostura bitters'ın dokunuşuyla mükemmel uyum.",
             ingredients: ["60ml Bourbon", "25ml Martini Rosso", "2 Damla Angostura Bitter"],
             image: "assets/manhattan.jpeg",
-            active: true
+            active: true,
+            categories: ["classic", "whiskey"]
         },
         {
             id: 14,
@@ -336,7 +355,8 @@
             description: "Tropikal bir kaçış. Ananas ve hindistan cevizinin mükemmel uyumu.",
             ingredients: ["40ml Beyaz Rom", "20ml Malibu", "40ml Taze ananas suyu", "30ml Hindistan Cevizi Sütü"],
             image: "assets/pina-colada.jpg",
-            active: false
+            active: false,
+            categories: ["tropical", "rum", "sweet"]
         },
 
 
@@ -344,6 +364,7 @@
 
     // DOM elements
     const cocktailGrid = document.getElementById('cocktail-grid');
+    const categoryFilterBar = document.getElementById('category-filter-bar');
     const modal = document.getElementById('cocktail-modal');
     const modalBackdrop = document.getElementById('modal-backdrop');
     const closeModalBtn = document.getElementById('close-modal');
@@ -370,16 +391,52 @@
     `;
     }
 
-    // Populate cocktail grid
-    function populateCocktails() {
+    // Helper: Get all unique categories
+    function getAllCategories() {
+        return Array.from(new Set(cocktails.flatMap(c => c.categories)));
+    }
+
+    // Render category filter bar
+    function renderCategoryFilterBar(selectedCategory = null) {
+        const categories = getAllCategories();
+        let html = `<button class="category-btn px-4 py-2 rounded-full border font-semibold text-sm transition-colors ${!selectedCategory ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100'}" data-category="all">Tümü</button>`;
+        categories.forEach(category => {
+            html += `<button class="category-btn px-4 py-2 rounded-full border font-semibold text-sm transition-colors ${selectedCategory === category ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100'}" data-category="${category}">${category}</button>`;
+        });
+        categoryFilterBar.innerHTML = html;
+        // Add event listeners
+        categoryFilterBar.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.category;
+                if (cat === 'all') {
+                    populateCocktails();
+                    renderCategoryFilterBar(null);
+                } else {
+                    populateCocktails(cat);
+                    renderCategoryFilterBar(cat);
+                }
+            });
+        });
+    }
+
+    // Populate cocktail grid (optionally filtered)
+    function populateCocktails(filterCategory = null) {
         // Sort cocktails: active first, then passive
         const sortedCocktails = [...cocktails].sort((a, b) => {
             if (a.active === b.active) return 0;
             return a.active ? -1 : 1;
         });
-
-        cocktailGrid.innerHTML = sortedCocktails.map(createCocktailCard).join('');
-
+        let displayCocktails = sortedCocktails;
+        if (filterCategory) {
+            displayCocktails = sortedCocktails.filter(c => c.categories.includes(filterCategory));
+        }
+        // If only one cocktail, center and set max width
+        if (displayCocktails.length === 1) {
+            cocktailGrid.innerHTML = `<div class='flex justify-center'><div class='max-w-xs w-full'>${createCocktailCard(displayCocktails[0])}</div></div>`;
+        } else {
+            // Render as a flat grid
+            cocktailGrid.innerHTML = displayCocktails.map(createCocktailCard).join('');
+        }
         // Add click event listeners to all cocktail cards
         const cocktailCards = document.querySelectorAll('.cocktail-card');
         cocktailCards.forEach(card => {
@@ -437,7 +494,10 @@
     });
 
     // Initialize the page
-    document.addEventListener('DOMContentLoaded', populateCocktails);
+    document.addEventListener('DOMContentLoaded', () => {
+        populateCocktails();
+        renderCategoryFilterBar();
+    });
 </script>
 </body></html>
 
