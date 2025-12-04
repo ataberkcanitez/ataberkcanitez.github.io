@@ -38,6 +38,20 @@
                     'GRAD' 0,
                     'opsz' 24
         }
+
+        /* Hide scrollbar but keep functionality */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
@@ -140,24 +154,24 @@
             </div>
         </header>
 
-        <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
-            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+        <div class="w-full flex flex-1 justify-center py-3 sm:py-5">
+            <div class="layout-content-container flex flex-col w-full max-w-7xl flex-1 px-3 sm:px-6 lg:px-8">
                 <main class="flex-grow">
-                    <div class="flex flex-wrap justify-between gap-3 p-4 my-4">
-                        <div class="flex min-w-72 flex-col gap-3">
-                            <p class="text-gray-800 dark:text-gray-100 text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Our Cocktails</p>
-                            <p class="text-gray-500 dark:text-gray-400 text-base">Handcrafted drinks made with premium ingredients</p>
+                    <div class="flex flex-wrap justify-between gap-3 p-3 sm:p-4 my-3 sm:my-4">
+                        <div class="flex min-w-0 flex-col gap-2 w-full">
+                            <p class="text-gray-800 dark:text-gray-100 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">Our Cocktails</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base">Handcrafted drinks made with premium ingredients</p>
                         </div>
                     </div>
                     <!-- Category Filter Bar -->
-                    <div id="category-filter-bar" class="flex gap-2 overflow-x-auto pb-2 mb-4">
+                    <div id="category-filter-bar" class="flex flex-nowrap min-w-0 gap-2 overflow-x-auto pb-3 mb-4 px-3 sm:px-4 scrollbar-hide">
                         <!-- Category buttons will be populated dynamically -->
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 p-4" id="cocktail-grid">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 px-3 sm:px-4" id="cocktail-grid">
                         <!-- Cocktails will be populated dynamically -->
                     </div>
                 </main>
-                <footer class="flex flex-col gap-6 px-5 py-10 mt-12 text-center border-t border-solid border-gray-200 dark:border-gray-800 @container">
+                <footer class="flex flex-col gap-4 sm:gap-6 px-2 sm:px-5 py-6 sm:py-10 mt-6 sm:mt-12 text-center border-t border-solid border-gray-200 dark:border-gray-800 @container">
                     <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
                         <div class="flex flex-col items-center">
                             <h4 class="font-bold text-gray-800 dark:text-gray-100 mb-2">Location</h4>
@@ -397,14 +411,11 @@
     // Create cocktail card HTML
     function createCocktailCard(cocktail) {
         const opacityClass = cocktail.active ? '' : 'opacity-50';
-
         return `
-      <div class="cocktail-card cursor-pointer ${opacityClass} group bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] overflow-hidden relative"
+      <div class="cocktail-card cursor-pointer ${opacityClass} group bg-cover bg-center flex flex-col gap-2 sm:gap-3 rounded-lg sm:rounded-xl justify-end p-3 sm:p-4 aspect-[3/4] w-full overflow-hidden transform transition-transform hover:scale-105"
            data-cocktail-id="${cocktail.id}"
-           data-alt="${cocktail.alt}"
-           data-active="${cocktail.active}"
-           style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("${cocktail.image}")'>
-        <p class="text-white text-xl font-bold leading-tight line-clamp-3 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-2">${cocktail.name}</p>
+           style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%), url("${cocktail.image}")'>
+        <p class="text-white text-base sm:text-lg font-bold leading-tight line-clamp-2">${cocktail.name}</p>
       </div>
     `;
     }
@@ -417,9 +428,9 @@
     // Render category filter bar
     function renderCategoryFilterBar(selectedCategory = null) {
         const categories = getAllCategories();
-        let html = `<button class="category-btn px-4 py-2 rounded-full border font-semibold text-sm transition-colors ${!selectedCategory ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100'}" data-category="all">Tümü</button>`;
+        let html = `<button class="category-btn flex-shrink-0 px-4 py-2 rounded-full border font-semibold text-sm transition-all shadow-sm whitespace-nowrap ${!selectedCategory ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary'}" data-category="all">Tümü</button>`;
         categories.forEach(category => {
-            html += `<button class="category-btn px-4 py-2 rounded-full border font-semibold text-sm transition-colors ${selectedCategory === category ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100'}" data-category="${category}">${category}</button>`;
+            html += `<button class="category-btn flex-shrink-0 px-4 py-2 rounded-full border font-semibold text-sm transition-all shadow-sm whitespace-nowrap ${selectedCategory === category ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary'}" data-category="${category}">${category.charAt(0).toUpperCase() + category.slice(1)}</button>`;
         });
         categoryFilterBar.innerHTML = html;
         // Add event listeners
