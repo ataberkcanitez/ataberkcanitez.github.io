@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
+<html class="light" lang="en">
+<head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Ataberk Canitez - Cocktails</title>
@@ -32,11 +33,10 @@
     </script>
     <style>
         .material-symbols-outlined {
-            font-variation-settings:
-                    'FILL' 0,
-                    'wght' 400,
-                    'GRAD' 0,
-                    'opsz' 24
+            font-variation-settings: 'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
         }
 
         /* Hide scrollbar but keep functionality */
@@ -44,6 +44,7 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
@@ -54,26 +55,34 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
+<body class="bg-background-light dark:bg-background-dark font-display"
+      style='font-family: Epilogue, "Noto Sans", sans-serif;'>
 <div class="fixed inset-0 bg-black bg-opacity-75 z-40 hidden" id="modal-backdrop"></div>
 <div class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" id="cocktail-modal">
     <div class="bg-background-light dark:bg-background-dark rounded-xl shadow-2xl w-full max-w-4xl h-[600px] flex flex-col md:flex-row overflow-hidden">
-        <div class="w-full md:w-1/2 h-64 md:h-full bg-cover bg-center" data-alt="A brightly lit orange cocktail in a tall glass with a slice of orange on the rim." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHltpoEJ2iB3pU1X-Y7iCAB5kHpxk1k8ztGowwZM3b5Df-eUkF2jqBFnQ48VPiim-FSfWipH_81PIuw0ENaIa0yc8KUUJbBCYVKttFzR7VZf7hiRpGeAlbfRpEYDtRXKDMMAJXUT-WZDQOJB75J9WKGt0W9duCsM5oIRNNPMf1uR5fdFTGtqhMygsgILklEmnMT-Y03_gDkKhWz8SYNocL8xmOPFkUPbb1y-LgdtxMffWYeF7NfWnivz_vHU89xWBZuqKn-GbOD5qK");'>
+        <div class="w-full md:w-1/2 h-64 md:h-full bg-cover bg-center"
+             data-alt="A brightly lit orange cocktail in a tall glass with a slice of orange on the rim."
+             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHltpoEJ2iB3pU1X-Y7iCAB5kHpxk1k8ztGowwZM3b5Df-eUkF2jqBFnQ48VPiim-FSfWipH_81PIuw0ENaIa0yc8KUUJbBCYVKttFzR7VZf7hiRpGeAlbfRpEYDtRXKDMMAJXUT-WZDQOJB75J9WKGt0W9duCsM5oIRNNPMf1uR5fdFTGtqhMygsgILklEmnMT-Y03_gDkKhWz8SYNocL8xmOPFkUPbb1y-LgdtxMffWYeF7NfWnivz_vHU89xWBZuqKn-GbOD5qK");'>
         </div>
         <div class="w-full md:w-1/2 h-full p-8 flex flex-col justify-between overflow-y-auto">
             <div class="flex-grow">
                 <div class="flex justify-between items-start mb-4">
-                    <h2 class="text-3xl md:text-4xl font-black text-primary dark:text-primary tracking-tighter">The Golden Hour</h2>
-                    <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white flex-shrink-0 ml-4" id="close-modal">
+                    <h2 class="text-3xl md:text-4xl font-black text-primary dark:text-primary tracking-tighter">The
+                        Golden Hour</h2>
+                    <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white flex-shrink-0 ml-4"
+                            id="close-modal">
 <span class="material-symbols-outlined text-3xl md:text-4xl">
                 close
               </span>
                     </button>
                 </div>
-                <div class="hidden mb-4 p-3 bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 dark:border-yellow-600 rounded-lg" id="unavailable-badge">
+                <div class="hidden mb-4 p-3 bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 dark:border-yellow-600 rounded-lg"
+                     id="unavailable-badge">
                     <p class="text-yellow-800 dark:text-yellow-200 text-sm font-semibold">⚠️ Şu an mevcut değil</p>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-6 min-h-[60px]">A refreshing and vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes and a hint of spice.</p>
+                <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-6 min-h-[60px]">A refreshing and
+                    vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes
+                    and a hint of spice.</p>
                 <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">İçindekiler</h3>
                 <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 flex-grow overflow-y-auto">
                     <li>Premium Vodka</li>
@@ -91,24 +100,28 @@
 <div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" id="mobile-menu-overlay"></div>
 
 <!-- Mobile Menu -->
-<div class="fixed top-0 right-0 h-full w-64 bg-background-light dark:bg-background-dark border-l border-gray-200 dark:border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
+<div class="fixed top-0 right-0 h-full w-64 bg-background-light dark:bg-background-dark border-l border-gray-200 dark:border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+     id="mobile-menu">
     <div class="flex flex-col h-full">
         <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
             <h2 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Menu</h2>
-            <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white" id="close-mobile-menu">
+            <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
+                    id="close-mobile-menu">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
         <nav class="flex-1 p-4 overflow-y-auto">
             <ul class="space-y-2">
                 <li>
-                    <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                    <a href="index.html"
+                       class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
                         <span class="material-symbols-outlined">home</span>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="cocktails.html" class="flex items-center gap-3 px-4 py-3 bg-primary bg-opacity-10 text-primary font-semibold rounded-lg">
+                    <a href="cocktails.html"
+                       class="flex items-center gap-3 px-4 py-3 bg-primary bg-opacity-10 text-primary font-semibold rounded-lg">
                         <span class="material-symbols-outlined">local_bar</span>
                         <span>Cocktails</span>
                     </a>
@@ -136,11 +149,13 @@
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex items-center space-x-8">
-                        <a href="index.html" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                        <a href="index.html"
+                           class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
                             <span class="material-symbols-outlined text-xl">home</span>
                             <span>Home</span>
                         </a>
-                        <a href="cocktails.html" class="flex items-center gap-2 text-primary font-semibold border-b-2 border-primary pb-1">
+                        <a href="cocktails.html"
+                           class="flex items-center gap-2 text-primary font-semibold border-b-2 border-primary pb-1">
                             <span class="material-symbols-outlined text-xl">local_bar</span>
                             <span>Cocktails</span>
                         </a>
@@ -159,15 +174,19 @@
                 <main class="flex-grow">
                     <div class="flex flex-wrap justify-between gap-3 p-3 sm:p-4 my-3 sm:my-4">
                         <div class="flex min-w-0 flex-col gap-2 w-full">
-                            <p class="text-gray-800 dark:text-gray-100 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">Our Cocktails</p>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base">Handcrafted drinks made with premium ingredients</p>
+                            <p class="text-gray-800 dark:text-gray-100 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">
+                                Our Cocktails</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base">Handcrafted drinks made
+                                with premium ingredients</p>
                         </div>
                     </div>
                     <!-- Category Filter Bar -->
-                    <div id="category-filter-bar" class="flex flex-nowrap min-w-0 gap-2 overflow-x-auto pb-3 mb-4 px-3 sm:px-4 scrollbar-hide">
+                    <div id="category-filter-bar"
+                         class="flex flex-nowrap min-w-0 gap-2 overflow-x-auto pb-3 mb-4 px-3 sm:px-4 scrollbar-hide">
                         <!-- Category buttons will be populated dynamically -->
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 px-3 sm:px-4" id="cocktail-grid">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 px-3 sm:px-4"
+                         id="cocktail-grid">
                         <!-- Cocktails will be populated dynamically -->
                     </div>
                 </main>
@@ -188,13 +207,27 @@
                     </div>
                     <div class="flex flex-wrap justify-center gap-6 mt-4">
                         <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
-                            <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor"
+                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                 width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
                         </a>
                         <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
-                            <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                            <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor"
+                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                 width="24" xmlns="http://www.w3.org/2000/svg">
+                                <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg>
                         </a>
                         <a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">
-                            <svg class="feather feather-twitter" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                            <svg class="feather feather-twitter" fill="none" height="24" stroke="currentColor"
+                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+                                 width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
                         </a>
                     </div>
                 </footer>
@@ -295,7 +328,7 @@
             id: 9,
             name: "Old fashioned",
             description: "Klasiklerin klasiği. Portakal aromalarıyla bourbon'u yavaş yavaş yudumlayacaksın.",
-            ingredients: ["60ml Bourbon", "1 Parca Portakal kabuğu", "2 Esmer Seker", "10ml soda" , "3 Damla Angosture Bitter"],
+            ingredients: ["60ml Bourbon", "1 Parca Portakal kabuğu", "2 Esmer Seker", "10ml soda", "3 Damla Angosture Bitter"],
             image: "assets/old-fashioned-.jpeg",
             active: true,
             categories: ["classic", "whiskey"]
@@ -304,7 +337,7 @@
             id: 10,
             name: "Pornstar Martini",
             description: "Vanilya ve passion fruit'un muhteşem uyumu. Tatlı, kremsi ve oldukça lezzetli.",
-            ingredients: ["50ml Vanilya Vodka", "20ml Passion Fruit likörü (Passoa)", "50ml Passion Fruit Püresi", "15ml Vanilya" ],
+            ingredients: ["50ml Vanilya Vodka", "20ml Passion Fruit likörü (Passoa)", "50ml Passion Fruit Püresi", "15ml Vanilya"],
             image: "assets/pornstar-martini.jpg",
             active: true,
             categories: ["tropical", "vodka", "sweet"]
@@ -315,7 +348,7 @@
             description: "Yeşil erik, kuzu kulağı ve limon otunun karşı konulmaz ekşiliğine lime ekledik; turunç karışımı ile tatlandırdık. GRASS damağınızda karşı koyulmaz bir tat ile sizleri bekliyor!",
             ingredients: ["30ml Cin", "45 ml Grass Karisimi (kuzu kulagi, limon otu)"],
             image: "assets/kuzu-kulagi.jpeg",
-            active: true,
+            active: false,
             categories: ["herbal", "gin", "sour"]
         },
         {
@@ -333,7 +366,7 @@
             description: "Son yılların favorisi yangınlı Hot Chili Passion'ın en dengeli hali karşınızda! Biz içine Bodrum'dan aldığımız satsumaları da ekledik, bize özel acısı tam kıvamında bir reçete çıktı.🔥",
             ingredients: ["30ml Cin", "Hot Lips Karışımı (Çarkıfelek Meyvesi & Satsuma & Acı Biber)"],
             image: "assets/hot-lips.jpg",
-            active: true,
+            active: false,
             categories: ["spicy", "gin", "tropical"]
         },
         {
@@ -390,6 +423,15 @@
             active: false,
             categories: ["tropical", "rum", "sweet"]
         },
+        {
+            id: 20,
+            name: "White Russian",
+            description: "Kremsi ve yumuşak bir klasik. Vodka, kahve likörü ve süt köpüğünün muhteşem uyumu, her yudumda tatlı ve rahatlatıcı.",
+            ingredients: ["40ml Vodka", "20ml Kahve likörü (Kahlua)", "Üzerine süt köpüğü"],
+            image: "assets/white-russian.jpg",
+            active: true,
+            categories: ["classic", "vodka", "coffee", "dessert"]
+        }
 
 
     ];
@@ -528,4 +570,5 @@
         renderCategoryFilterBar();
     });
 </script>
-</body></html>
+</body>
+</html>
