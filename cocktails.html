@@ -261,13 +261,31 @@
     // Cocktail data
     const cocktails = [
         {
-            id: 1,
-            name: "Cosmopolitan",
-            description: "Klasik bir şehir efsanesi. Hem tatlı hem ekşi.",
-            ingredients: ["60ml Vodka", "25 ml Cointreau", "1 avuc kızılcık", "10ml limon suyu", "20ml seker şurubu"],
-            image: "assets/cosmopolitan.jpg",
+            id: 27,
+            name: "Mürver Hanım",
+            description: "Zarif, çiçeksi ve baştan çıkarıcı. St-Germain'in asil mürver çiçeği aroması, taze çileklerin neşesiyle cinin karakterinde buluşuyor. Adı gibi hanımefendi, tadı gibi unutulmaz",
+            ingredients: ["40ml Gin", "4-5 Cilek ya da 30 ml cilek puresi", "25ml St-Germain", "25ml limon suyu", "10ml Şeker şurubu"],
+            image: "assets/murver-hanim.png",
             active: true,
-            categories: ["classic", "vodka"]
+            categories: ["gin", "sour", "creamy", "signature"]
+        },
+        {
+            id: 5,
+            name: "Pink Me Up",
+            description: "Rengi kadar neşeli. Ananas ve hibiscus çayının buluşması, hafif tatlı ve çok keyifli.",
+            ingredients: ["50ml Beefeater Pink", "60ml Ananas suyu", "15ml Vanilya surubu", "20ml Limon suyu", "40ml Hibiscus Cayi"],
+            image: "assets/pink-me-up.jpg",
+            active: true,
+            categories: ["tropical", "gin", "sweet", "signature"]
+        },
+        {
+            id: 21,
+            name: "Clover Club",
+            description: "Taze ahududu ve cinin buluştuğu, kadifemsi dokusunu yumurta akından alan, hafif ekşi ve meyvemsi bir kokteyl. İlk yudumda ahududunun ferahlığı, ardından cinin aroması ve kremsi dokusu geliyor. Hem zarif hem eğlenceli",
+            ingredients: ["5 Adet Ahududu", "30ml Gin", "30ml Blanc Vermouth", "15ml Şeker Şurubu", "22.5ml Limon Suyu", "Yumurta Akı"],
+            image: "assets/clover-club.jpg",
+            active: true,
+            categories: ["gin", "sour", "creamy", "signature"]
         },
         {
             id: 3,
@@ -280,6 +298,51 @@
             categories: ["coffee", "vodka", "dessert"]
         },
         {
+            id: 17,
+            name: "Hot Lips",
+            description: "Ateşli ve tutkulu! Absolut Tabasco'nun acılığı, tequila ve passion fruit'un tropikal tatlılığıyla buluşuyor. Her yudumda hem tatlı hem yakıcı bir deneyim. Cesur damaklar için! 🔥",
+            ingredients: ["30ml Absolut Tabasco", "20ml Blanco Tekila", "15ml Cointreau", "30ml Passion Fruit Püresi", "25ml Taze Limon Suyu", "7.5ml Agave Şurubu"],
+            image: "assets/hot-lips.png",
+            active: true,
+            categories: ["spicy", "vodka", "tropical", "tequila", "signature"]
+        },
+        {
+            id: 10,
+            name: "Pornstar Martini",
+            description: "Vanilya ve passion fruit'un muhteşem uyumu. Tatlı, kremsi ve oldukça lezzetli.",
+            ingredients: ["50ml Vanilya Vodka", "20ml Passion Fruit likörü (Passoa)", "50ml Passion Fruit Püresi", "15ml Vanilya"],
+            image: "assets/pornstar-martini.jpg",
+            active: true,
+            categories: ["tropical", "vodka", "sweet", "signature"]
+        },
+        // {
+        //     id: 25,
+        //     name: "Juliet & Romeo",
+        //     description: "Salatalık, nane ve gül suyunun cinle buluştuğu, hafif çiçeksi ve ferah bir içim sunar.",
+        //     ingredients: ["60ml Gin", "22,5ml Limon suyu","22.5ml Simple Syrup", "3 Dilim Salatalik",  "Bir Tutam Tuz", "3-4 Yaprak Taze nane", "3 Damla Gul suyu"],
+        //     image: "assets/juliet-and-romeo.webp",
+        //     active: true,
+        //     categories: ["gin", "herbal", "signature"]
+        // },
+        {
+            id: 15,
+            name: "Grass",
+            description: "Doğanın en taze hali bardağında! Kuzu kulağı, ekşi elma, limon ve cinin buluştuğu bu özel tarif, topraksı ve otsu aromalarla ferahlığı bir araya getiriyor. Her yudumda ilkbaharı hissedeceksin.",
+            ingredients: ["30ml Gin", "60ml Kuzu kulağı sosu (kuzu kulağı, taze limon suyu, şeker şurubu, ekşi elma)"],
+            image: "assets/kuzu-kulagi.jpeg",
+            active: true,
+            categories: ["gin", "herbal", "signature"]
+        },
+        {
+            id: 1,
+            name: "Cosmopolitan",
+            description: "Klasik bir şehir efsanesi. Hem tatlı hem ekşi.",
+            ingredients: ["60ml Vodka", "25 ml Cointreau", "1 avuc kızılcık", "10ml limon suyu", "20ml seker şurubu"],
+            image: "assets/cosmopolitan.jpg",
+            active: true,
+            categories: ["classic", "vodka"]
+        },
+        {
             id: 4,
             name: "Passion Fruit Margarita",
             description: "Tropikal bir kaçış. Passion fruit'un egzotik tadı tequila ile dans ediyor.",
@@ -289,40 +352,22 @@
             categories: ["tropical", "tequila", "sour"]
         },
         {
-            id: 5,
-            name: "Pink Me Up",
-            description: "Rengi kadar neşeli. Ananas ve hibiscus çayının buluşması, hafif tatlı ve çok keyifli.",
-            ingredients: ["50ml Beefeater Pink", "60ml Ananas suyu", "15ml Vanilya surubu", "20ml Limon suyu", "40ml Hibiscus Cayi"],
-            image: "assets/pink-me-up.jpg",
+            id: 26,
+            name: "Classic Margarita",
+            description: "Tequila, lime ve Cointreau'nun mükemmel dengesiyle, ekşi ve ferahlatıcı bir klasik. Her yudumda yazı ve eğlenceyi çağrıştırır.",
+            ingredients: ["60ml Tekila Blanco", "30ml limon suyu", "30ml Cointreau"],
+            image: "assets/classic-margarita.jpg",
             active: true,
-            categories: ["tropical", "gin", "sweet"]
+            categories: ["tequila", "classic", "sour"]
         },
         {
-            id: 6,
-            name: "Over The Rainbow",
-            description: "Ada çayı ve salatalık ile ferahlatan bir deneyim. Serinletici ve rahatlatıcı.",
-            ingredients: ["45ml Gin", "Ada çayı", "Zencefil", "Salatalık", "Nane"],
-            image: "assets/over-the-rainbow.jpg",
+            id: 28,
+            name: "Tommy's Margarita",
+            description: "Classic Margarita'nın daha saf ve otantik versiyonu. Cointreau yerine agave şurubu kullanılır, böylece tequila'nın karakteri daha belirgin hissedilir.",
+            ingredients: ["60ml Tekila Blanco", "30ml limon suyu", "15ml Agave şurubu"],
+            image: "assets/classic-margarita.jpg",
             active: true,
-            categories: ["refreshing", "gin", "herbal"]
-        },
-        {
-            id: 7,
-            name: "Fly me to the moon",
-            description: "Sürprizlerle dolu. Çikolata, isli vişne ve arnavut biberi bir arada...",
-            ingredients: ["45ml Gin", "Çikolata", "İsli Vişne", "Arnavut Biberi"],
-            image: "assets/fly-me-to-the-moon.jpg",
-            active: false,
-            categories: ["exotic", "gin", "dessert"]
-        },
-        {
-            id: 8,
-            name: "Whiskey Sour",
-            description: "Zamansız klasik. Bourbon'un sıcaklığı limonun tazeliğiyle dengede, basit ama mükemmel.",
-            ingredients: ["60ml Bourbon", "25ml Limon suyu", "15ml simple syrup"],
-            image: "assets/whiskey-sour.jpg",
-            active: true,
-            categories: ["classic", "whiskey", "sour"]
+            categories: ["tequila", "classic", "sour"]
         },
         {
             id: 9,
@@ -334,76 +379,13 @@
             categories: ["classic", "whiskey"]
         },
         {
-            id: 10,
-            name: "Pornstar Martini",
-            description: "Vanilya ve passion fruit'un muhteşem uyumu. Tatlı, kremsi ve oldukça lezzetli.",
-            ingredients: ["50ml Vanilya Vodka", "20ml Passion Fruit likörü (Passoa)", "50ml Passion Fruit Püresi", "15ml Vanilya"],
-            image: "assets/pornstar-martini.jpg",
+            id: 8,
+            name: "Whiskey Sour",
+            description: "Zamansız klasik. Bourbon'un sıcaklığı limonun tazeliğiyle dengede, basit ama mükemmel.",
+            ingredients: ["60ml Bourbon", "25ml Limon suyu", "15ml simple syrup"],
+            image: "assets/whiskey-sour.jpg",
             active: true,
-            categories: ["tropical", "vodka", "sweet"]
-        },
-        {
-            id: 15,
-            name: "Grass",
-            description: "Yeşil erik, kuzu kulağı ve limon otunun karşı konulmaz ekşiliğine lime ekledik; turunç karışımı ile tatlandırdık. GRASS damağınızda karşı koyulmaz bir tat ile sizleri bekliyor!",
-            ingredients: ["30ml Cin", "45 ml Grass Karisimi (kuzu kulagi, limon otu)"],
-            image: "assets/kuzu-kulagi.jpeg",
-            active: false,
-            categories: ["herbal", "gin", "sour"]
-        },
-        {
-            id: 16,
-            name: "No: 13 VİŞNE ÇİKOLATA",
-            description: "Yoğun vişne ve zengin çikolata aromalarının buluştuğu, hazır ve pratik bir kokteyl. Tatlı ve hafif ekşi lezzetiyle her yudumda keyif verir.",
-            ingredients: ["30ml Cin", "45 ml no:13 vişne çikolata karışımı"],
-            image: "assets/sweet-chocolate.png",
-            active: true,
-            categories: ["dessert", "gin", "sweet"]
-        },
-        {
-            id: 17,
-            name: "Hot Lips",
-            description: "Son yılların favorisi yangınlı Hot Chili Passion'ın en dengeli hali karşınızda! Biz içine Bodrum'dan aldığımız satsumaları da ekledik, bize özel acısı tam kıvamında bir reçete çıktı.🔥",
-            ingredients: ["30ml Cin", "Hot Lips Karışımı (Çarkıfelek Meyvesi & Satsuma & Acı Biber)"],
-            image: "assets/hot-lips.jpg",
-            active: true,
-            categories: ["spicy", "gin", "tropical"]
-        },
-        {
-            id: 18,
-            name: "Red Heart",
-            description: "Rengini orman meyvelerinden alan çok dengeli; doğal ve topraksı tatlarıyla akılda kalıcı kalbimiz kadar kırmızı imza tarifimiz ❣️",
-            ingredients: ["30ml Cin", "45 ml Red Heart Karışımı (Kırmızı Orman Meyveleri)"],
-            image: "assets/red-heart.jpg",
-            active: true,
-            categories: ["berry", "gin", "fruity"]
-        },
-        {
-            id: 19,
-            name: "Blue Skies",
-            description: "En sevdiğimiz orman meyvelerinden yaban mersini ve fesleğen aşkı ❣️ En sevilen imza içeceklerimizden Soft Breeze en dengeli ve fresh haliyle evinizde karıştırmaya hazır",
-            ingredients: ["30ml Cin", "45 ml Blue Skies Karışımı (Yaban Mersini & Fesleğen)"],
-            image: "assets/blue-skies.jpg",
-            active: false,
-            categories: ["berry", "gin", "herbal", "fruity", "refreshing"]
-        },
-        {
-            id: 11,
-            name: "Negroni",
-            description: "İtalyan usulü bitter cocktail. Sert, karakterli ve her yudumda farklı bir tat katmanı keşfediyorsun.",
-            ingredients: ["30ml Cin", "30ml Campari", "30ml Martini Rosso"],
-            image: "assets/negroni.jpg",
-            active: true,
-            categories: ["classic", "gin", "bitter"]
-        },
-        {
-            id: 12,
-            name: "Cin Tonik",
-            description: "Klasik cin tonik",
-            ingredients: ["60ml Cin", "120ml Tonik", "20ml Limon", "Salatalık", "Nane"],
-            image: "assets/cin-tonik.jpg",
-            active: true,
-            categories: ["refreshing", "gin"]
+            categories: ["classic", "whiskey", "sour"]
         },
         {
             id: 13,
@@ -415,13 +397,13 @@
             categories: ["classic", "whiskey"]
         },
         {
-            id: 14,
-            name: "Pina Colada",
-            description: "Tropikal bir kaçış. Ananas ve hindistan cevizinin mükemmel uyumu.",
-            ingredients: ["40ml Beyaz Rom", "20ml Malibu", "40ml Taze ananas suyu", "30ml Hindistan Cevizi Sütü"],
-            image: "assets/pina-colada.jpg",
-            active: false,
-            categories: ["tropical", "rum", "sweet"]
+            id: 11,
+            name: "Negroni",
+            description: "İtalyan usulü bitter cocktail. Sert, karakterli ve her yudumda farklı bir tat katmanı keşfediyorsun.",
+            ingredients: ["30ml Cin", "30ml Campari", "30ml Martini Rosso"],
+            image: "assets/negroni.jpg",
+            active: true,
+            categories: ["classic", "gin", "bitter"]
         },
         {
             id: 20,
@@ -433,13 +415,13 @@
             categories: ["classic", "vodka", "coffee", "dessert"]
         },
         {
-            id: 21,
-            name: "Clover Club",
-            description: "Taze ahududu ve cinin buluştuğu, kadifemsi dokusunu yumurta akından alan, hafif ekşi ve meyvemsi bir kokteyl. İlk yudumda ahududunun ferahlığı, ardından cinin aroması ve kremsi dokusu geliyor. Hem zarif hem eğlenceli",
-            ingredients: ["5 Adet Ahududu", "30ml Gin", "30ml Blanc Vermouth", "15ml Şeker Şurubu", "22.5ml Limon Suyu", "Yumurta Akı"],
-            image: "assets/clover-club.jpg",
+            id: 24,
+            name: "Gin Fizz",
+            description: "Köpüklü ve ferahlatıcı bir klasik. Limonun tazeliğiyle cinin buluştuğu, hafif ve içimi kolay bir kokteyl. Sıcak günlerin vazgeçilmezi.",
+            ingredients: ["50ml Gin", "30ml limon suyu", "2 bar kasigi pudra sekeri", "10ml Cointreau", "Soda"],
+            image: "assets/gin-fizz.jpg",
             active: true,
-            categories: ["classic", "gin", "berry", "sour", "creamy"]
+            categories: ["classic", "gin", "refreshing"]
         },
         {
             id: 22,
@@ -457,36 +439,17 @@
             ingredients: ["45ml bourbon", "25ml limon suyu", "20ml seker surubu", "25ml Kirmizi Sarap", "yumurta aki"],
             image: "assets/new-york-sour.jpg",
             active: true,
-            categories: ["whiskey", "sour", "classic", "fruity"]
+            categories: ["whiskey", "sour", "classic"]
         },
         {
-            id: 24,
-            name: "Gin Fizz",
-            description: "Köpüklü ve ferahlatıcı bir klasik. Limonun tazeliğiyle cinin buluştuğu, hafif ve içimi kolay bir kokteyl. Sıcak günlerin vazgeçilmezi.",
-            ingredients: ["50ml Gin", "30ml limon suyu", "2 bar kasigi pudra sekeri", "10ml Cointreau", "Soda"],
-            image: "assets/gin-fizz.jpg",
+            id: 12,
+            name: "Cin Tonik",
+            description: "Klasik cin tonik",
+            ingredients: ["60ml Cin", "120ml Tonik", "20ml Limon", "Salatalık", "Nane"],
+            image: "assets/cin-tonik.jpg",
             active: true,
-            categories: ["classic", "gin", "refreshing"]
+            categories: ["refreshing", "gin"]
         },
-        {
-            id: 25,
-            name: "Juliet & Romeo",
-            description: "Salatalık, nane ve gül suyunun cinle buluştuğu, hafif çiçeksi ve ferah bir içim sunar.",
-            ingredients: ["60ml Gin", "22,5ml Limon suyu","22.5ml Simple Syrup", "3 Dilim Salatalik",  "Bir Tutam Tuz", "3-4 Yaprak Taze nane", "3 Damla Gul suyu"],
-            image: "assets/juliet-and-romeo.webp",
-            active: true,
-            categories: ["gin", "herbal", "signature"]
-        },
-        {
-            id: 26,
-            name: "Classic Margarita",
-            description: "Tequila, lime ve Cointreau'nun mükemmel dengesiyle, ekşi ve ferahlatıcı bir klasik. Her yudumda yazı ve eğlenceyi çağrıştırır.",
-            ingredients: ["60ml Tekila Blanco", "30ml limon suyu", "30ml Cointreau"],
-            image: "assets/classic-margarita.jpg",
-            active: true,
-            categories: ["tequila", "classic", "sour"]
-        }
-
     ];
 
     // DOM elements
@@ -515,9 +478,47 @@
     `;
     }
 
-    // Helper: Get all unique categories
+    // Helper: Get all unique categories with custom sorting
     function getAllCategories() {
-        return Array.from(new Set(cocktails.flatMap(c => c.categories)));
+        const allCategories = Array.from(new Set(cocktails.flatMap(c => c.categories)));
+
+        // Define custom order
+        const categoryOrder = [
+            'signature',
+            'classic',
+            'gin',
+            'vodka',
+            'whiskey',
+            'tequila',
+            'rum',
+            'tropical',
+            'sour',
+            'spicy',
+            'sweet',
+            'coffee',
+            'dessert',
+            'herbal',
+            'refreshing',
+            'creamy',
+            'bitter'
+        ];
+
+        // Sort categories based on custom order
+        return allCategories.sort((a, b) => {
+            const indexA = categoryOrder.indexOf(a);
+            const indexB = categoryOrder.indexOf(b);
+
+            // If both are in the order list, sort by their position
+            if (indexA !== -1 && indexB !== -1) {
+                return indexA - indexB;
+            }
+            // If only A is in the list, it comes first
+            if (indexA !== -1) return -1;
+            // If only B is in the list, it comes first
+            if (indexB !== -1) return 1;
+            // If neither is in the list, sort alphabetically
+            return a.localeCompare(b);
+        });
     }
 
     // Render category filter bar
