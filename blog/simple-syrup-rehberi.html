@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="google-site-verification" content="RIMYxxvRDxZSZb6biGe2CZyeEc7Z34aDsn-xmX7sIT8" />
+    <title>Simple Syrup Rehberi - Ataberk's Bar Blog</title>
+    <meta name="description" content="Simple syrup, rich syrup, demerara, bal şurubu, agave — hangisi ne zaman kullanılır? Kokteyl şuruplarının tam rehberi."/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        html { scroll-behavior: smooth; }
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+        .blog-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .blog-content ul {
+            margin-bottom: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" id="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div class="fixed top-0 right-0 h-full w-64 bg-background-light dark:bg-background-dark border-l border-gray-200 dark:border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
+    <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+            <h2 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Menu</h2>
+            <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white" id="close-mobile-menu">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="flex-1 p-4 overflow-y-auto">
+            <ul class="space-y-2">
+                <li>
+                    <a href="../index.html" class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined">home</span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../cocktails.html" class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined">local_bar</span>
+                        <span>Cocktails</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../blog.html" class="flex items-center gap-3 px-4 py-3 bg-primary bg-opacity-10 text-primary font-semibold rounded-lg">
+                        <span class="material-symbols-outlined">article</span>
+                        <span>Blog</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+    <div class="layout-container flex h-full grow flex-col">
+        <!-- Header -->
+        <header class="sticky top-0 z-30 bg-background-light dark:bg-background-dark border-b border-solid border-b-gray-200 dark:border-b-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-3 text-gray-800 dark:text-gray-100">
+                        <div class="size-8 text-primary">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-gray-800 dark:text-gray-100 text-xl font-bold leading-tight">Ataberk's Bar</h2>
+                    </div>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../index.html" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-xl">home</span>
+                            <span>Home</span>
+                        </a>
+                        <a href="../cocktails.html" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-xl">local_bar</span>
+                            <span>Cocktails</span>
+                        </a>
+                        <a href="../blog.html" class="flex items-center gap-2 text-primary font-semibold border-b-2 border-primary pb-1">
+                            <span class="material-symbols-outlined text-xl">article</span>
+                            <span>Blog</span>
+                        </a>
+                    </nav>
+                    <button class="md:hidden text-gray-800 dark:text-gray-100" id="menu-toggle">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex flex-1 justify-center">
+            <div class="flex flex-col w-full flex-1">
+                <main class="flex-grow">
+                    <!-- Article Content -->
+                    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+                        <!-- Breadcrumb -->
+                        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                            <a href="../blog.html" class="hover:text-primary transition-colors">Blog</a>
+                            <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            <span>Simple Syrup Rehberi</span>
+                        </div>
+
+                        <!-- Title & Meta -->
+                        <header class="mb-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-xs font-semibold rounded-full">Temel</span>
+                                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs font-semibold rounded-full">Şuruplar</span>
+                            </div>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 dark:text-gray-100 tracking-tight leading-tight mb-4">
+                                Simple Syrup Rehberi
+                            </h1>
+                            <p class="text-lg sm:text-xl text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                                Hangi şurup ne zaman kullanılır? Farkları ne? Hepsini tek tek açıklıyorum.
+                            </p>
+                            <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 border-t border-b border-gray-200 dark:border-gray-700 py-4">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">person</span>
+                                    <span>Ataberk</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">calendar_today</span>
+                                    <span>15 Haziran 2025</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">schedule</span>
+                                    <span>5 dk okuma</span>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- Article Body -->
+                        <div class="blog-content text-gray-700 dark:text-gray-300 text-base sm:text-lg">
+
+                            <p>
+                                Kokteyl tariflerinde "simple syrup" yazıyor, tamam da hangisi? 1:1 mi, 2:1 mi? Demerara mı kullanayım, bal şurubu mu? Bu yazıda hepsini tek tek açıklıyorum — ne zaman hangisini kullanacağını bilirsen kokteylin seviyesi gözle görülür şekilde değişir.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Simple Syrup (1:1)
+                            </h2>
+
+                            <p>
+                                En temel şurup. Eşit ağırlıkta şeker ve su. Örneğin 100g şeker + 100g su. Hafif tatlılık verir, kokteylde ağırlık yapmaz. Çoğu tarif bunu kasteder.
+                            </p>
+
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">water_drop</span>
+                                    Simple Syrup (1:1)
+                                </h3>
+                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">1.</span>
+                                        <span>100g beyaz toz şeker + 100g su</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">2.</span>
+                                        <span>Tencerede kısık ateşte, şeker çözülene kadar karıştır (kaynatma)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">3.</span>
+                                        <span>Soğut, şişele, buzdolabında sakla</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
+                                    Raf ömrü: buzdolabında ~2 hafta. Bir çay kaşığı votka eklersen 1 aya çıkar.
+                                </p>
+                            </div>
+
+                            <p>
+                                Kaynatmaman önemli. Kaynatınca su buharlaşır, oran bozulur. Amacın şekeri çözmek, şurup yapmak karamel yapmak değil.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Rich Syrup (2:1)
+                            </h2>
+
+                            <p>
+                                İki kat şeker, bir kat su. Daha yoğun, daha viskoz, daha tatlı. Ama burada önemli bir ayrıntı var: rich syrup kullandığında tarifteki şurup miktarını yarıya indirmen gerekiyor. 20ml simple syrup yazan yere 10ml rich syrup koyarsın, yoksa kokteyl şekerli su olur.
+                            </p>
+
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">water_drop</span>
+                                    Rich Syrup (2:1)
+                                </h3>
+                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">1.</span>
+                                        <span>200g beyaz toz şeker + 100g su</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">2.</span>
+                                        <span>Kısık ateşte şeker çözülene kadar karıştır</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">3.</span>
+                                        <span>Soğut, şişele</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
+                                    Raf ömrü: buzdolabında ~1 ay. Şeker oranı yüksek olduğu için daha uzun dayanır.
+                                </p>
+                            </div>
+
+                            <p>
+                                Rich syrup'ın avantajı ne? Kokteyle daha az sıvı ekliyorsun, yani içeceğin dilution'ını (sulanmasını) daha az etkiliyorsun. Özellikle stirred kokteyllerde (Old Fashioned gibi) bu önemli — zaten buz eriyip sulandıracak, bir de şuruptan ekstra su girmesini istemezsin.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Demerara Syrup
+                            </h2>
+
+                            <p>
+                                Demerara şekeri, normal beyaz şekerden daha az işlenmiş. İçinde melasse (pekmezimsi bir şey) kalıyor, bu da ona karamel, toffee benzeri bir derinlik veriyor. Whiskey bazlı kokteyllerde harika çalışıyor.
+                            </p>
+
+                            <p>
+                                Hazırlanışı simple syrup ile aynı — sadece beyaz şeker yerine demerara şekeri kullan. 1:1 veya 2:1 yapabilirsin. Old Fashioned'a demerara syrup koyduğunda farkı hemen anlarsın: bourbon'un karamel notalarıyla mükemmel uyum yakalar.
+                            </p>
+
+                            <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5 my-6">
+                                <p class="text-amber-800 dark:text-amber-200 text-sm">
+                                    <strong>İpucu:</strong> Demerara şekeri sıcak suda beyaz şekerden daha zor çözülür. Biraz daha sabırlı karıştır, acele etme. Tamamen çözülmeden ateşten alma.
+                                </p>
+                            </div>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Bal Şurubu (Honey Syrup)
+                            </h2>
+
+                            <p>
+                                Bal çok viskoz, direkt kokteyle koymak zor — soğuk sıvıda çözülmez, shaker'ın dibinde kalır. O yüzden bal şurubu yapıyoruz.
+                            </p>
+
+                            <p>
+                                Genelde <strong>3:1</strong> oranında hazırlanıyor: 3 kısım bal, 1 kısım sıcak su. Karıştır, bal çözülsün, bitti. Bazıları 2:1 tercih ediyor, bu sana kalmış — 3:1 daha yoğun bal tadı verir, 2:1 daha akışkan ve dozajı kolay olur.
+                            </p>
+
+                            <p>
+                                Penicillin kokteylinin olmazsa olmazı. Gold Rush da bal şurubu ile yapılır. Bal'ın çiçeksi aroması whiskey ile çok iyi gidiyor.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Agave Şurubu
+                            </h2>
+
+                            <p>
+                                Agave nektarı zaten sıvı, ama yine de oldukça yoğun. Kokteylde düzgün dağılması için sıcak suyla inceltmek iyi fikir. <strong>2:1</strong> veya <strong>3:1</strong> (agave:su) yapabilirsin.
+                            </p>
+
+                            <p>
+                                Tommy's Margarita'nın sırrı agave şurubu. Cointreau yerine agave kullanıyorsun, tequila'nın agave bazlı olması nedeniyle tatlar birbirini tamamlıyor. Temiz, sade, otantik bir margarita istiyorsan Tommy's tarifi ve agave şurubu şart.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Hangisini Ne Zaman Kullanayım?
+                            </h2>
+
+                            <div class="overflow-x-auto my-6">
+                                <table class="w-full text-sm text-left border-collapse">
+                                    <thead>
+                                        <tr class="border-b-2 border-gray-200 dark:border-gray-700">
+                                            <th class="py-3 pr-4 font-bold text-gray-800 dark:text-gray-100">Şurup</th>
+                                            <th class="py-3 pr-4 font-bold text-gray-800 dark:text-gray-100">Oran</th>
+                                            <th class="py-3 font-bold text-gray-800 dark:text-gray-100">En İyi Uyum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-gray-600 dark:text-gray-400">
+                                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                                            <td class="py-3 pr-4 font-semibold text-gray-800 dark:text-gray-200">Simple Syrup</td>
+                                            <td class="py-3 pr-4">1:1</td>
+                                            <td class="py-3">Genel kullanım, sour'lar, gin bazlı</td>
+                                        </tr>
+                                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                                            <td class="py-3 pr-4 font-semibold text-gray-800 dark:text-gray-200">Rich Syrup</td>
+                                            <td class="py-3 pr-4">2:1</td>
+                                            <td class="py-3">Stirred kokteyller, dilution'ı az tutmak</td>
+                                        </tr>
+                                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                                            <td class="py-3 pr-4 font-semibold text-gray-800 dark:text-gray-200">Demerara</td>
+                                            <td class="py-3 pr-4">1:1 veya 2:1</td>
+                                            <td class="py-3">Old Fashioned, whiskey bazlı</td>
+                                        </tr>
+                                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                                            <td class="py-3 pr-4 font-semibold text-gray-800 dark:text-gray-200">Bal Şurubu</td>
+                                            <td class="py-3 pr-4">3:1 veya 2:1</td>
+                                            <td class="py-3">Penicillin, Gold Rush, whiskey bazlı</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3 pr-4 font-semibold text-gray-800 dark:text-gray-200">Agave</td>
+                                            <td class="py-3 pr-4">2:1 veya 3:1</td>
+                                            <td class="py-3">Tommy's Margarita, tequila bazlı</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Genel İpuçları
+                            </h2>
+
+                            <ul class="list-none space-y-3 mb-6">
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                    <span><strong class="text-gray-800 dark:text-gray-100">Kaynatma.</strong> Şekeri çözmek için kısık ateş yeterli. Kaynatırsan su buharlaşır, oran bozulur.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                    <span><strong class="text-gray-800 dark:text-gray-100">Tartarak yap.</strong> Bardakla ölçme, mutfak tartısı kullan. Tutarlılık her şey.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                    <span><strong class="text-gray-800 dark:text-gray-100">Cam şişe kullan.</strong> Plastik koku ve tat transfer edebilir.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                    <span><strong class="text-gray-800 dark:text-gray-100">Etiketle.</strong> Ne olduğunu ve ne zaman yaptığını yaz. İki hafta sonra "bu hangisiydi?" demek istemezsin.</span>
+                                </li>
+                            </ul>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Son Söz
+                            </h2>
+
+                            <p>
+                                Şurup seçimi küçük bir detay gibi görünür ama kokteylde büyük fark yaratır. Simple syrup her işi görür, evet. Ama doğru şurubu doğru kokteylde kullandığında tat katmanları belirginleşir, kokteyl daha "oturmuş" hissedilir. Hepsini bir kere hazırla, buzdolabında tut, dene. Farkı ilk yudumda anlayacaksın.
+                            </p>
+
+                        </div>
+
+                        <!-- Share & Back -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                            <a href="../blog.html" class="flex items-center gap-2 text-primary font-semibold hover:opacity-80 transition-opacity">
+                                <span class="material-symbols-outlined">arrow_back</span>
+                                <span>Tüm Yazılar</span>
+                            </a>
+                        </div>
+                    </article>
+                </main>
+
+                <!-- Footer -->
+                <footer class="flex flex-col gap-6 px-5 py-10 text-center border-t border-solid border-gray-200 dark:border-gray-800">
+                    <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">&copy; 2025 Ataberk Canitez. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+    function openMobileMenu() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenuFunc() {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    menuToggle.addEventListener('click', openMobileMenu);
+    closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+</script>
+</body>
+</html>
