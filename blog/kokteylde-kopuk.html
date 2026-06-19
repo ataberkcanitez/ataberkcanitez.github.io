@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html class="light" lang="tr">
+<html lang="tr">
 <head>
+    <script>
+        (function(){var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();
+    </script>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta name="google-site-verification" content="RIMYxxvRDxZSZb6biGe2CZyeEc7Z34aDsn-xmX7sIT8" />
     <title>Kokteylde Köpük: Yumurta Akı vs Vegan Alternatifler - Ataberk's Bar Blog</title>
     <meta name="description" content="Kokteylde köpük nasıl elde edilir? Yumurta akı, aquafaba ve vegan köpürtücüler — hangisi ne zaman mantıklı?"/>
+    <meta name="author" content="Ataberk Canitez" />
+    <meta property="og:title" content="Kokteylde Köpük - Ataberk's Bar" />
+    <meta property="og:description" content="Kokteylde köpük nasıl elde edilir? Yumurta akı, aquafaba ve vegan köpürtücüler." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ataberkcanitez.github.io/blog/kokteylde-kopuk.html" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@_ataberkcanitez" />
+    <meta name="twitter:title" content="Kokteylde Köpük - Ataberk's Bar" />
+    <meta name="twitter:description" content="Kokteylde köpük nasıl elde edilir? Yumurta akı, aquafaba ve vegan köpürtücüler." />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -52,78 +66,11 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
 
-<!-- Mobile Menu Overlay -->
-<div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" id="mobile-menu-overlay"></div>
-
-<!-- Mobile Menu -->
-<div class="fixed top-0 right-0 h-full w-64 bg-background-light dark:bg-background-dark border-l border-gray-200 dark:border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
-    <div class="flex flex-col h-full">
-        <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
-            <h2 class="text-gray-800 dark:text-gray-100 text-lg font-bold">Menu</h2>
-            <button class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white" id="close-mobile-menu">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <nav class="flex-1 p-4 overflow-y-auto">
-            <ul class="space-y-2">
-                <li>
-                    <a href="../index.html" class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-                        <span class="material-symbols-outlined">home</span>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../cocktails.html" class="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-                        <span class="material-symbols-outlined">local_bar</span>
-                        <span>Cocktails</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../blog.html" class="flex items-center gap-3 px-4 py-3 bg-primary bg-opacity-10 text-primary font-semibold rounded-lg">
-                        <span class="material-symbols-outlined">article</span>
-                        <span>Blog</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
+<div id="site-header"></div>
+<script src="../components.js" data-base="../"></script>
 
 <div class="relative flex h-auto min-h-screen w-full flex-col">
     <div class="layout-container flex h-full grow flex-col">
-        <!-- Header -->
-        <header class="sticky top-0 z-30 bg-background-light dark:bg-background-dark border-b border-solid border-b-gray-200 dark:border-b-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center gap-3 text-gray-800 dark:text-gray-100">
-                        <div class="size-8 text-primary">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-gray-800 dark:text-gray-100 text-xl font-bold leading-tight">Ataberk's Bar</h2>
-                    </div>
-                    <nav class="hidden md:flex items-center space-x-8">
-                        <a href="../index.html" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined text-xl">home</span>
-                            <span>Home</span>
-                        </a>
-                        <a href="../cocktails.html" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined text-xl">local_bar</span>
-                            <span>Cocktails</span>
-                        </a>
-                        <a href="../blog.html" class="flex items-center gap-2 text-primary font-semibold border-b-2 border-primary pb-1">
-                            <span class="material-symbols-outlined text-xl">article</span>
-                            <span>Blog</span>
-                        </a>
-                    </nav>
-                    <button class="md:hidden text-gray-800 dark:text-gray-100" id="menu-toggle">
-                        <span class="material-symbols-outlined text-3xl">menu</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
         <div class="flex flex-1 justify-center">
             <div class="flex flex-col w-full flex-1">
                 <main class="flex-grow">
@@ -378,34 +325,10 @@
                     </article>
                 </main>
 
-                <!-- Footer -->
-                <footer class="flex flex-col gap-6 px-5 py-10 text-center border-t border-solid border-gray-200 dark:border-gray-800">
-                    <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">&copy; 2025 Ataberk Canitez. All Rights Reserved.</p>
-                </footer>
+                <div id="site-footer" data-variant="simple"></div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const menuToggle = document.getElementById('menu-toggle');
-    const closeMobileMenu = document.getElementById('close-mobile-menu');
-
-    function openMobileMenu() {
-        mobileMenu.classList.remove('translate-x-full');
-        mobileMenuOverlay.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeMobileMenuFunc() {
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenuOverlay.classList.add('hidden');
-        document.body.style.overflow = '';
-    }
-    menuToggle.addEventListener('click', openMobileMenu);
-    closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-    mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
-</script>
 </body>
 </html>
