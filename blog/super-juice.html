@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <script>
+        (function(){var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="google-site-verification" content="RIMYxxvRDxZSZb6biGe2CZyeEc7Z34aDsn-xmX7sIT8" />
+    <title>Super Juice Nedir? - Ataberk's Bar Blog</title>
+    <meta name="description" content="1 limondan 8 kat fazla suyu çıkaran Super Juice tekniği. Oleo citrate yöntemiyle evde nasıl yapılır, matematiksel oranlar ve adım adım tarif."/>
+    <meta name="author" content="Ataberk Canitez" />
+    <meta property="og:title" content="Super Juice Nedir? - Ataberk's Bar" />
+    <meta property="og:description" content="1 limondan 8 kat fazla suyu çıkaran Super Juice tekniği. Oleo citrate yöntemiyle nasıl yapılır?" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ataberkcanitez.github.io/blog/super-juice.html" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@_ataberkcanitez" />
+    <meta name="twitter:title" content="Super Juice Nedir? - Ataberk's Bar" />
+    <meta name="twitter:description" content="1 limondan 8 kat fazla suyu çıkaran Super Juice tekniği." />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        html { scroll-behavior: smooth; }
+
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+        .blog-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .blog-content ul {
+            margin-bottom: 1.25rem;
+        }
+        .blog-content .image-block {
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display" style='font-family: Epilogue, "Noto Sans", sans-serif;'>
+
+<div id="site-header"></div>
+<script src="../components.js" data-base="../"></script>
+
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+    <div class="layout-container flex h-full grow flex-col">
+        <div class="flex flex-1 justify-center">
+            <div class="flex flex-col w-full flex-1">
+                <main class="flex-grow">
+                    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+                        <!-- Breadcrumb -->
+                        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                            <a href="../blog.html" class="hover:text-primary transition-colors">Blog</a>
+                            <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            <span>Super Juice</span>
+                        </div>
+
+                        <!-- Title & Meta -->
+                        <header class="mb-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary text-xs font-semibold rounded-full">Teknik</span>
+                                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs font-semibold rounded-full">Sürdürülebilirlik</span>
+                            </div>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 dark:text-gray-100 tracking-tight leading-tight mb-4">
+                                Super Juice Nedir?
+                            </h1>
+                            <p class="text-lg sm:text-xl text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                                1 limondan normalde 30-40ml suyu çıkarırsın. Super juice ile aynı limondan 250ml+ suyu çıkarmak mümkün. Hem daha verimli, hem daha az israf.
+                            </p>
+                            <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 border-t border-b border-gray-200 dark:border-gray-700 py-4">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">person</span>
+                                    <span>Ataberk</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">calendar_today</span>
+                                    <span>1 Temmuz 2026</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-base">schedule</span>
+                                    <span>6 dk okuma</span>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- Article Body -->
+                        <div class="blog-content text-gray-700 dark:text-gray-300 text-base sm:text-lg">
+
+                            <p>
+                                Bar tezgahında en hızlı biten şey narenciye suyu. Limon, lime — hepsini sıkıyorsun, çöpe atıyorsun, ertesi gün aynısını tekrarlıyorsun. Super juice tam da bu soruna çözüm: kabukları çöpe atmak yerine, onlardan da suyu çıkarıyorsun. Hem verim birkaç kat artıyor, hem de tadı en az taze sıkılmış kadar iyi — hatta kör tadımlarda çoğu kişi super juice olanı tercih ediyor.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Mantık Ne?
+                            </h2>
+
+                            <p>
+                                Super juice tekniğinin arkasında basit bir kimya var. Narenciye kabuklarındaki yağlar ve aromalar normalde çöpe gidiyor. Ama kabukları asitle (sitrik asit, bazı meyvelerde malik asit) birlikte bekletirsen, asit kabuktan yağları ve aromaları çekiyor. Buna <strong>oleo citrate</strong> deniyor — oleo saccharum'un asitli versiyonu gibi düşün.
+                            </p>
+
+                            <p>
+                                Sonra bu karışıma su ekliyorsun, blender'dan geçiriyorsun, süzüyorsun. Elinde taze sıkılmışla aynı asitlikte ve aromada, ama çok daha fazla miktarda bir suyu oluyor.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Matematik
+                            </h2>
+
+                            <p>
+                                Super juice'un güzel tarafı, oranların sabit olması. Kabukları tartıyorsun, gerisini hesaplıyorsun. Her şey kabuk ağırlığına göre belirleniyor.
+                            </p>
+
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">calculate</span>
+                                    Limon Super Juice
+                                </h3>
+                                <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">100g</span>
+                                        <span>Limon kabuğu</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">100g</span>
+                                        <span>Sitrik asit</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">1666g</span>
+                                        <span>Su</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
+                                    Kabuk/asit oranı 1:1, su miktarı kabuk ağırlığının ~16.66 katı.
+                                </p>
+                            </div>
+
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">calculate</span>
+                                    Lime Super Juice
+                                </h3>
+                                <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">100g</span>
+                                        <span>Lime kabuğu</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">66.7g</span>
+                                        <span>Sitrik asit</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">33.3g</span>
+                                        <span>Malik asit</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-primary font-bold text-lg w-16 text-right">1666g</span>
+                                        <span>Su</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
+                                    Lime'da iki asit kullanılıyor: sitrik + malik. Malik asit, lime'ın kendine özgü ekşi-meyvemsi karakterini veriyor. Toplam asit yine kabuk ağırlığıyla 1:1 ama dağılım farklı.
+                                </p>
+                            </div>
+
+                            <p>
+                                Neden bu oranlar? Çünkü taze sıkılmış limon suyunun asitliği yaklaşık %6 sitrik asit. Bu formül, o asitliği büyük hacimde su içinde yeniden oluşturuyor. Sonuçta elde ettiğin suyun pH'ı ve tat profili taze sıkılmışa çok yakın çıkıyor.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Adım Adım Yapılışı
+                            </h2>
+
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">blender</span>
+                                    Tarif
+                                </h3>
+                                <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">1.</span>
+                                        <span>Limon veya lime'ları soy. Soyduğun meyveleri bir kenara koy — sonra lazım olacak.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">2.</span>
+                                        <span>Kabukları tart. Bu ağırlık her şeyin referansı.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">3.</span>
+                                        <span>Kabukları cam bir kavanoza koy, üzerine asidi ekle. Limon için sadece sitrik asit; lime için sitrik + malik asit karışımı.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">4.</span>
+                                        <span>Karıştır ve en az <strong>2 saat</strong> beklet. Asit, kabuktan yağları ve aromaları çekecek — oleo citrate oluşacak. Kabuklar solar, sıvı yoğun sarı/yeşil bir renge dönecek.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">5.</span>
+                                        <span>Suyu ekle. Ayırdığın soyulmuş meyveleri de at.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">6.</span>
+                                        <span>Hepsini blender'a al ve iyice karıştır. 30-40 saniye yeterli.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold mt-0.5">7.</span>
+                                        <span>İnce bir süzgeçten veya çeesecloth'tan geçir. Katı parçalar kalsın, temiz suyu al.</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
+                                    Buzdolabında kapalı şişede 2 haftaya kadar dayanır. İlk birkaç gün en iyi tadı verir.
+                                </p>
+                            </div>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Oleo Citrate Neden Önemli?
+                            </h2>
+
+                            <p>
+                                Oleo citrate aşamasını atlamak cazip gelebilir ama bu adım tekniğin kalbi. Asit, kabuktan sadece suyu değil, esansiyel yağları da çekiyor. O yağlar olmazsa elinde asitli su olur — narenciye suyu değil. 2 saat minimumdur, gece boyunca bekletirsen daha da iyi sonuç alırsın.
+                            </p>
+
+                            <p>
+                                Cam kavanoz kullanmak önemli. Asit plastikle etkileşebilir, metal kapta da istenmeyen tatlar oluşabilir. Cam en güvenlisi.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Neden Lime'da Malik Asit Var?
+                            </h2>
+
+                            <p>
+                                Her narenciyenin asit profili farklı. Limon neredeyse tamamen sitrik asit içeriyor, bu yüzden sadece sitrik asit yeterli. Ama lime'da malik asit de var — o kendine has ekşi-meyvemsi karakteri veren şey. Sadece sitrik asit kullanırsan lime super juice'un "lime gibi" değil, "ekşi su gibi" tadı olur. Malik asit o eksik parçayı tamamlıyor.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Taze Sıkılmış vs Super Juice
+                            </h2>
+
+                            <p>
+                                Kör tadım testlerinde super juice, taze sıkılmışla en az aynı seviyede çıkıyor — hatta çoğu zaman daha çok tercih ediliyor. Super juice biraz daha "temiz" ve tutarlı bir profile sahip. Taze sıkılmışın meyve meyve değişen karakteri burada stabilize oluyor. Bir Daiquiri'de veya Margarita'da farkı anlamak zaten zor, ama anlayanlar genelde super juice tarafına kayıyor.
+                            </p>
+
+                            <p>
+                                Asıl avantajı verimde: 4-5 limondan normalde bir gece idare edecek kadar suyun çıkar. Aynı limonlarla super juice yaparsan bir haftanı çıkarırsın. Hem maliyet düşüyor, hem israf azalıyor.
+                            </p>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                İpuçları
+                            </h2>
+
+                            <ul class="list-none space-y-3 mb-6">
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">tips_and_updates</span>
+                                    <span>Kabukları soyarken mümkün olduğunca az beyaz kısım (albedo) bırak. Beyaz kısım acılık verir.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">tips_and_updates</span>
+                                    <span>Asitleri online veya aktarlarda bulabilirsin. Gıda kalitesi (food grade) olmasına dikkat et.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">tips_and_updates</span>
+                                    <span>Blender'dan geçirdikten sonra iki kez süz — ilkinde kaba süzgeç, ikincisinde ince. Daha temiz bir sonuç verir.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="material-symbols-outlined text-primary text-lg mt-0.5">tips_and_updates</span>
+                                    <span>Portakal ve greyfurt için de uygulanabilir ama asit oranları farklı. Limon ve lime en stabil sonuçları veriyor.</span>
+                                </li>
+                            </ul>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Hesaplayıcı
+                            </h2>
+
+                            <p>
+                                Kabukları tarttın, şimdi ne kadar asit ve su lazım? Aşağıya gram cinsinden kabuk ağırlığını gir, gerisini biz hesaplayalım.
+                            </p>
+
+                            <!-- Lemon Calculator -->
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">calculate</span>
+                                    Limon Super Juice Hesaplayıcı
+                                </h3>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <input type="number" id="lemon-input" min="1" placeholder="örn. 100"
+                                           class="w-32 px-4 py-2.5 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-100 text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"/>
+                                    <span class="text-gray-500 dark:text-gray-400 text-sm">gram limon kabuğu</span>
+                                </div>
+                                <div id="lemon-result" class="hidden">
+                                    <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-primary font-bold text-lg w-20 text-right" id="lemon-citric">—</span>
+                                            <span>Sitrik asit</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-primary font-bold text-lg w-20 text-right" id="lemon-water">—</span>
+                                            <span>Su</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lime Calculator -->
+                            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 my-6">
+                                <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">calculate</span>
+                                    Lime Super Juice Hesaplayıcı
+                                </h3>
+                                <div class="flex items-center gap-3 mb-5">
+                                    <input type="number" id="lime-input" min="1" placeholder="örn. 100"
+                                           class="w-32 px-4 py-2.5 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-100 text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"/>
+                                    <span class="text-gray-500 dark:text-gray-400 text-sm">gram lime kabuğu</span>
+                                </div>
+                                <div id="lime-result" class="hidden">
+                                    <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-primary font-bold text-lg w-20 text-right" id="lime-citric">—</span>
+                                            <span>Sitrik asit</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-primary font-bold text-lg w-20 text-right" id="lime-malic">—</span>
+                                            <span>Malik asit</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-primary font-bold text-lg w-20 text-right" id="lime-water">—</span>
+                                            <span>Su</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                function fmt(n) { return n.toFixed(2) + 'g'; }
+
+                                document.getElementById('lemon-input').addEventListener('input', function() {
+                                    const g = parseFloat(this.value);
+                                    const res = document.getElementById('lemon-result');
+                                    if (!g || g <= 0) { res.classList.add('hidden'); return; }
+                                    res.classList.remove('hidden');
+                                    document.getElementById('lemon-citric').textContent = fmt(g * 1);
+                                    document.getElementById('lemon-water').textContent = fmt(g * 16.66);
+                                });
+
+                                document.getElementById('lime-input').addEventListener('input', function() {
+                                    const g = parseFloat(this.value);
+                                    const res = document.getElementById('lime-result');
+                                    if (!g || g <= 0) { res.classList.add('hidden'); return; }
+                                    res.classList.remove('hidden');
+                                    document.getElementById('lime-citric').textContent = fmt(g * 0.6667);
+                                    document.getElementById('lime-malic').textContent = fmt(g * 0.3330);
+                                    document.getElementById('lime-water').textContent = fmt(g * 16.66);
+                                });
+                            </script>
+
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-800 dark:text-gray-100 tracking-tight">
+                                Son Söz
+                            </h2>
+
+                            <p>
+                                Super juice, bar operasyonunu ciddi anlamda kolaylaştıran tekniklerden biri. Evde kokteyl yapan biri için bile faydalı — bir pazar günü 30 dakika ayırıp bir haftalık narenciye suyunu hazırlayabilirsin. İlk seferde tartı ve hesap biraz uğraştırıyor ama bir kere alışınca geri dönüş yok. Hem cüzdanın hem de çöp kovan sana teşekkür edecek.
+                            </p>
+
+                        </div>
+
+                        <!-- Credit -->
+                        <div class="mt-8 text-sm text-gray-400 dark:text-gray-500">
+                            <p>Super juice formülleri ve hesaplama oranları <a href="https://kevinkos.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">kevinkos.com</a>'dan referans alınmıştır.</p>
+                        </div>
+
+                        <!-- Share & Back -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                            <a href="../blog.html" class="flex items-center gap-2 text-primary font-semibold hover:opacity-80 transition-opacity">
+                                <span class="material-symbols-outlined">arrow_back</span>
+                                <span>Tüm Yazılar</span>
+                            </a>
+                        </div>
+                    </article>
+                </main>
+
+                <div id="site-footer" data-variant="simple"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -99,8 +99,8 @@
                 <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-6 min-h-[60px]">A refreshing and
                     vibrant cocktail that captures the warmth of a summer sunset. Perfectly balanced with citrus notes
                     and a hint of spice.</p>
-                <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">İçindekiler</h3>
-                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 flex-grow overflow-y-auto">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3" id="ingredients-heading">İçindekiler</h3>
+                <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 flex-grow overflow-y-auto" id="ingredients-list">
                     <li>Premium Vodka</li>
                     <li>Fresh Orange Juice</li>
                     <li>Apricot Liqueur</li>
@@ -145,6 +145,19 @@
     </div>
 </div>
 <script>
+    // Bartender mode
+    (function() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('unlock')) {
+            localStorage.setItem('bartenderMode', 'true');
+            window.history.replaceState({}, '', window.location.pathname);
+        } else if (params.has('lock')) {
+            localStorage.removeItem('bartenderMode');
+            window.history.replaceState({}, '', window.location.pathname);
+        }
+    })();
+    const bartenderMode = localStorage.getItem('bartenderMode') === 'true';
+
     // Cocktail data
     const cocktails = [
         {
@@ -498,9 +511,20 @@
             unavailableBadge.classList.remove('hidden');
         }
 
-        modalIngredients.innerHTML = cocktail.ingredients.map(ingredient =>
-            `<li>${ingredient}</li>`
-        ).join('');
+        function stripMeasurement(str) {
+            return str
+                .replace(/\d+[\.\,]?\d*\s*ml\s+/gi, '')
+                .replace(/^\d+\s*cl\s+/i, '')
+                .replace(/^\d+[\-–]\d+\s*(yaprak|adet|dilim)\s*/i, '')
+                .replace(/^\d+\s*(adet|parca|avuc|dilim|bar kasigi|damla)\s+/i, '')
+                .replace(/^\d+[\-–]?\d*\s+/i, '')
+                .trim();
+        }
+
+        modalIngredients.innerHTML = cocktail.ingredients.map(ingredient => {
+            const display = bartenderMode ? ingredient : stripMeasurement(ingredient);
+            return `<li>${display}</li>`;
+        }).join('');
 
         // Show modal
         modal.classList.remove('hidden');
